@@ -1,0 +1,7 @@
+
+
+2 players planning towers at the same spot
+	-planning grid has to be synced to, cant place on someones planned tower
+	
+grid with playernumbers occupying the field 
+	-planned -> occupied

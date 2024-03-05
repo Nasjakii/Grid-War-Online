@@ -1,0 +1,23 @@
+
+
+1. new sprite 16x16 (actually 14x14 or with visible ground to know who ownes tower)
+	-set collision mask percise
+	-different levels (6) 
+2. new object in Towers Group:
+	-make child of TowerParent
+	-create event:
+		-different levels (6) as array 
+		-level = 0
+		-hp_max, hp = hp_max
+		-vision range 
+	-step event:
+		-sprite_index = level_sprites[level];
+		-destroy when hp <= 0
+		-if has an action make sure only to act if in tower layer (own tower)
+	-draw even:
+		-inherit from parent
+3. add to GUI Arrays
+	-sprName
+	-objName
+	-price
+	-Upgrades
