@@ -1,10 +1,5 @@
 
-sprite_index = level_sprites[level];
-
-if hp <= 0 {
-	scr_destroy(x,y);
-}
-
+event_inherited();
 
 
 if reload_timer <= 0 && objGame.action_step == 1 && image_index != 0 {

@@ -8,7 +8,9 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objTowerParent","path":"objects/objTowerParent/objTowerParent.yy",},"propertyId":{"name":"player_number","path":"objects/objTowerParent/objTowerParent.yy",},"value":"1",},
+  ],
   "parent": {
     "name": "Towers",
     "path": "folders/Objects/Game/Towers.yy",

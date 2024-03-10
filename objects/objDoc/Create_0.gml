@@ -8,9 +8,6 @@ hp = hp_max;
 repair_amount = 1;
 repair_list = ds_list_create();
 
-level = 0;
-
-
 level_sprites[0] = sprDoc;
 level_sprites[1] = sprDoc1;
 level_sprites[2] = sprDoc2;

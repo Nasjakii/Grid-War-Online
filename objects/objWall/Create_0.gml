@@ -8,10 +8,6 @@ vision_range = 1;
 hp_max = 10;
 hp = hp_max;
 
-
-level = 0;
-
-
 level_sprites[0] = sprWall;
 level_sprites[1] = sprWall1;
 level_sprites[2] = sprWall2;

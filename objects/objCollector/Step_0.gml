@@ -1,5 +1,5 @@
 
-sprite_index = level_sprites[level];
+event_inherited();
 
 if objGame.action == true {
 	image_speed = 1;
@@ -8,8 +8,5 @@ if objGame.action == true {
 	image_speed = 0;
 }
 
-if hp <= 0 {
-	scr_destroy(x,y);
-}
 
 

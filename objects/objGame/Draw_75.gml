@@ -91,9 +91,12 @@ var part = planning_time / time;
 
 draw_set_font(foDebugSmall);
 scr_draw_set(fa_left, fa_top, c_black);
-if debugging draw_text(width + 10, 40, string(timer));
-if debugging draw_text(width + 100, 40, string(timer_counting));
-if debugging draw_text(width + 300, 40, string(last_time));
+if debugging {
+	draw_text(width + 10, 40, string(timer));
+	draw_text(width + 100, 40, string(timer_counting));
+	draw_text(width + 300, 40, string(last_time));
+	draw_text(width + 10, 80, string(objGUI.overlay_type));
+}
 
 
 

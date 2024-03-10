@@ -99,11 +99,16 @@ function scr_overlay_upgrade(pos) {
 		
 		
 		//level and price of tower
+		draw_set_font(foDefault);
 		var font_size = gui_scale * 0.3;
-		scr_draw_set(fa_left, fa_bottom, c_black);
-		draw_text_transformed(pos[0] - 4 * gui_scale, pos[1], "lvl: " + string(inst.level), font_size, font_size, 0);
-		draw_set_halign(fa_right);
-		draw_text_transformed(pos[2] + 4 * gui_scale, pos[1], string(_upgrade.price) + "$", font_size, font_size, 0);
+		scr_draw_set(fa_center, fa_middle, c_white);
+		var level_str = string("lvl " + string(inst.level));
+		draw_sprite_ext(sprGUITag, 1, pos[0], pos[1], string_width(level_str) * gui_scale * 0.02, gui_scale * 0.9, 0, c_white, 1);
+		draw_text_transformed(pos[0], pos[1], level_str, font_size, font_size, 0);
+		scr_draw_set(fa_center, fa_middle, c_white);
+		var price_str = string(_upgrade.price);
+		draw_sprite_ext(sprGUITag, 0, pos[0] + 32 * gui_scale, pos[1], string_width(price_str) * gui_scale * 0.02, gui_scale * 0.9, 0, c_white, 1);
+		draw_text_transformed(pos[2], pos[1], price_str, font_size, font_size, 0);
 		
 
 		//upgrading

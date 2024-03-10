@@ -7,8 +7,6 @@ hp_max = 5;
 hp = hp_max;
 
 
-level = 0;
-
 level_sprites[0] = sprRadar;
 level_sprites[1] = sprRadar1;
 level_sprites[2] = sprRadar2;

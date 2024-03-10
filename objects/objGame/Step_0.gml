@@ -5,7 +5,7 @@ if keyboard_check_released(vk_f1) {
 }
 
 if debugging {
-	show_debug_log(true);
+	//show_debug_log(true);
 	
 
 	if keyboard_check_released(vk_f12) {

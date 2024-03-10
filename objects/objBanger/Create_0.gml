@@ -10,9 +10,6 @@ bullet_speed = 3;
 bullet_damage = 1;
 shrapnel_damage = 3;
 
-level = 0;
-
-
 level_sprites[0] = sprBanger;
 level_sprites[1] = sprBanger1;
 level_sprites[2] = sprBanger2;

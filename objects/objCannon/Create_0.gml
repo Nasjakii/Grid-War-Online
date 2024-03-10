@@ -8,9 +8,6 @@ hp = hp_max;
 bullet_speed = 1;
 bullet_damage = 1;
 
-level = 0;
-
-
 level_sprites[0] = sprCannon;
 level_sprites[1] = sprCannon1;
 level_sprites[2] = sprCannon2;
