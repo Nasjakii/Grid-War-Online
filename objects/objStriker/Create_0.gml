@@ -18,6 +18,3 @@ reload_timer = 0;
 
 missile_damage = 10;
 missile_aoe = 1;
-
-target_field_x = -1;
-target_field_y = -1;

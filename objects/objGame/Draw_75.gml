@@ -60,11 +60,25 @@ if keyboard_check_pressed(vk_escape) {
 	show_menu = !show_menu;
 }
 
-if objPlayer.game_state == "lost" || objPlayer.game_state == "won" {
+var game_state = objPlayer.game_state;
+if game_state == "lost" || game_state == "won" {
 	scr_draw_set(fa_center, fa_middle, c_white);
 	draw_set_font(foDefaultBig);
 	draw_text(gui_width / 2, gui_height / 2, "You " + objPlayer.game_state);
 	disable_fog = true;
+	
+	if global.campaign && game_state == "won" {
+		var next = scr_button_gui(sprNextButton, gui_width / 2, gui_height / 2, 1);
+		if next {
+			var room_index = room_get_name(room)
+			room_index = string_delete(room_index, 1, 8);
+			var next_room = asset_get_index("Campaign" + string(int64(room_index) + 1));
+
+			show_debug_message(next_room);
+			if room_exists(next_room) room_goto(next_room) else room_goto(Menu);
+
+		}
+	}
 }
 
 if global.is_host && game_running == false {

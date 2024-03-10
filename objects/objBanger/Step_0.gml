@@ -11,7 +11,8 @@ if objGame.action_step == 1 && image_index != 0 {
 		 base_speed : bullet_speed,
 		 damage : bullet_damage,
 		 player_number : player_number,
-		 shrapnel_damage : shrapnel_damage
+		 shrapnel_damage : shrapnel_damage,
+		 shrapnel_range : shrapnel_range
 		 });
 	
 	

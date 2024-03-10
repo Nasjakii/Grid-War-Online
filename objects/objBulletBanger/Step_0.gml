@@ -29,7 +29,7 @@ if place_meeting(x,y,objTowerParent) {
 		
 		
 		
-		//draw_shrapnel = true;
+		draw_shrapnel = true;
 		x1 = x + lengthdir_x(shrapnel_split, direction);
 		y1 = y + lengthdir_y(shrapnel_split, direction);
 		

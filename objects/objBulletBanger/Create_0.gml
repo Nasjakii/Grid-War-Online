@@ -11,7 +11,7 @@ y2 = 0;
 y3 = 0;
 y4 = 0;
 
-shrapnel_range = 16;
+shrapnel_range = tile_size;
 shrapnel_split = 14;
-
 shrapnel_angle = 50;
+

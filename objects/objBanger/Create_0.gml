@@ -9,6 +9,7 @@ hp = hp_max;
 bullet_speed = 3;
 bullet_damage = 1;
 shrapnel_damage = 3;
+shrapnel_range = 2;
 
 level_sprites[0] = sprBanger;
 level_sprites[1] = sprBanger1;

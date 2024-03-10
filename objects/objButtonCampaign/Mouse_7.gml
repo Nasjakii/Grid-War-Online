@@ -1,4 +1,4 @@
-room_goto(Campaign1);
+room_goto(CampaignRoom);
 global.campaign = true;
 global.is_host = true;
 global.player_number = 0;

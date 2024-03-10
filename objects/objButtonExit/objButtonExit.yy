@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Buttons",
-    "path": "folders/Objects/Menu/Buttons.yy",
+    "name": "Textbuttons",
+    "path": "folders/Objects/Menu/Buttons/Textbuttons.yy",
   },
   "parentObjectId": {
     "name": "objButtonTextParent",
