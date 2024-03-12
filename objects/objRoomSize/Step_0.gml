@@ -24,9 +24,6 @@ if change_val || clicked_out{
 		
 		string_val = string(new_val);
 		global.room_size = new_val;
-		ini_open("Savefile.ini");
-		ini_write_real("Settings", "room_size", global.room_size);
-		ini_close(); 
 		
 		change_val = false;
 		clicked_out = false;

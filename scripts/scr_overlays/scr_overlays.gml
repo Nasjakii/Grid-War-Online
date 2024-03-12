@@ -16,63 +16,6 @@ function scr_get_overlay_values(o_width, o_height, x_add = 0) {
 	
 }
 
-
-function scr_overlay_buy(pos){
-	
-	var inst = ds_grid_get(objGame.field_grid_instances, clicked_field[0], clicked_field[1]);
-	if inst != 0 {
-		overlay_type = "";
-		return;
-	}
-	
-	scr_draw_rectangle(pos);
-	
-
-	//Resize sprites
-	var image_scale = 2 * gui_scale;
-	var spr_size = sprite_get_width(sprBase) * image_scale;
-	
-	var towers = objTowers.tower_list;
-	var towers_count = ds_list_size(towers);
-	
-	//hitboxes to buy towers
-	for(var i = 0; i < towers_count; i++) {
-		
-		//Sprite
-		var xpos = pos[0] + overlay_offset * gui_scale + (overlay_offset * gui_scale + spr_size) * i;
-		var ypos = pos[1] + overlay_offset * gui_scale;
-		draw_sprite_ext(ds_list_find_value(towers, i).sprite, 0, xpos, ypos, image_scale, image_scale, 0, c_white,1);
-		
-		//Price
-		var font_size = gui_scale * 0.3;
-		
-		scr_draw_set(fa_right, fa_top, c_black);
-		draw_set_font(foRescalingGUI);
-		draw_text_transformed(xpos + spr_size,ypos - 3 * gui_scale,string(ds_list_find_value(towers, i).price) + "$", font_size, font_size, 0);
-		draw_set_color(c_white);
-		
-		//Name
-		scr_draw_set(fa_center, fa_middle, c_black);
-		draw_text_transformed(xpos + spr_size / 2,ypos + spr_size + 2 * gui_scale,ds_list_find_value(towers, i).name, font_size, font_size, 0);
-		draw_set_color(c_white);
-		
-		
-
-		//Hitbox
-		var hover = point_in_rectangle(mouse_gui_x, mouse_gui_y, xpos, ypos, xpos + spr_size, ypos + spr_size);
-		if hover && left_released {
-			var obj = ds_list_find_value(towers, i).object;
-			scr_buy(obj, clicked_field[0], clicked_field[1]);
-			
-			if keyboard_check(vk_shift) {
-				multi_buy_obj = obj; 
-				overlay_type = "Multi-Buy";
-			}
-			
-		}
-	}
-	
-}
 	
 function scr_overlay_upgrade(pos) {
 	
@@ -143,7 +86,7 @@ function scr_overlay_cannon(pos) {
 		scr_draw_rectangle(pos);
 
 		
-		var inst = ds_grid_get(objGame.field_grid_instances, clicked_field[0], clicked_field[1]);
+		var inst = ds_grid_get(objGrid.field_grid_instances, clicked_field[0], clicked_field[1]);
 		if inst <= 0 || !instance_exists(inst) {
 			overlay_type = "";
 			return;

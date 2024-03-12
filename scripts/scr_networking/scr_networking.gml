@@ -15,6 +15,10 @@ function scr_receive_data(sender = undefined) {
 		case(CREATE_HOST): 
 			global.player_number = ds_map_find_value(response, "playerNumber");
 			global.host_number = ds_map_find_value(response, "hostNumber");
+			
+			room_set_width(Room1, global.room_size);
+			room_set_height(Room1, global.room_size);
+			
 			room_goto(Room1);
 
 		break;
@@ -39,6 +43,9 @@ function scr_receive_data(sender = undefined) {
 				global.win_option = ds_map_find_value(game_setting_map, "win_option");
 				global.max_players = ds_map_find_value(game_setting_map, "max_players");
 
+				room_set_width(Room1, global.room_size);
+				room_set_height(Room1, global.room_size);
+				
 				room_goto(Room1);
 			} else {
 				//info that someone spawned (playercount)
@@ -58,16 +65,16 @@ function scr_receive_data(sender = undefined) {
 		break;
 		case(GRIDINFO): //rework for online if nessesarry
 			if global.is_host { //send Gridinfo
-				for(var i = 0; i < objGame.field_width; i++) { 
+				for(var i = 0; i < objGrid.field_width; i++) { 
 					var g_buffer = buffer_create(1, buffer_grow, 1);
 					buffer_seek(g_buffer, buffer_seek_start, 0);
 					buffer_write(g_buffer, buffer_u16,	GRIDINFO);
 					buffer_write(g_buffer, buffer_u16, i); //the row
 					//var arr = [];
-					for(var i2 = 0; i2 < objGame.field_height; i2++) { 
+					for(var i2 = 0; i2 < objGrid.field_height; i2++) { 
 						
-						buffer_write(g_buffer, buffer_s16, ds_grid_get(objGame.field_grid, i, i2)); //safe object id
-						//arr[i2] = ds_grid_get(objGame.field_grid, i, i2);
+						buffer_write(g_buffer, buffer_s16, ds_grid_get(objGrid.field_grid, i, i2)); //safe object id
+						//arr[i2] = ds_grid_get(objGrid.field_grid, i, i2);
 						
 					}
 					scr_send_buffer(g_buffer);
@@ -80,10 +87,10 @@ function scr_receive_data(sender = undefined) {
 				
 				//var arr = [];
 				var row = buffer_read(t_buffer, buffer_u16);
-				for(var i2 = 0; i2 < objGame.field_height; i2++) {
+				for(var i2 = 0; i2 < objGrid.field_height; i2++) {
 					var row_info = buffer_read(t_buffer, buffer_s16);
 					//arr[i2] = row_info;
-					ds_grid_set(objGame.field_grid, row, i2, row_info);
+					ds_grid_set(objGrid.field_grid, row, i2, row_info);
 				}
 				//show_debug_message("row: " + string(row) + " info: " + string(arr));
 				
@@ -101,7 +108,7 @@ function scr_receive_data(sender = undefined) {
 			var ypos = ds_map_find_value(response, "ypos");
 			
 			scr_change_tile(xpos, ypos, p_num);
-			ds_grid_set(objGame.field_grid_planned_by, xpos ,ypos, p_num);
+			ds_grid_set(objGrid.field_grid_planned_by, xpos ,ypos, p_num);
 			
 		break;
 		case(UPDATE_TOWER):

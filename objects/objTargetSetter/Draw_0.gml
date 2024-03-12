@@ -1,7 +1,7 @@
 
 var tile_s = tile_size;
-var field_x = clamp(floor(x/tile_s), aoe_size, objGame.field_width - 1 - aoe_size);
-var field_y = clamp(floor(y/tile_s), aoe_size, objGame.field_height - 1 - aoe_size);
+var field_x = clamp(floor(x/tile_s), aoe_size, objGrid.field_width - 1 - aoe_size);
+var field_y = clamp(floor(y/tile_s), aoe_size, objGrid.field_height - 1 - aoe_size);
 var x1 = field_x * tile_s;
 var y1 = field_y * tile_s;
 

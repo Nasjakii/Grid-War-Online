@@ -1,0 +1,42 @@
+{
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objCollectorEditor",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
+  "managed": true,
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objTowerParent","path":"objects/objTowerParent/objTowerParent.yy",},"propertyId":{"name":"player_number","path":"objects/objTowerParent/objTowerParent.yy",},"value":"1",},
+  ],
+  "parent": {
+    "name": "EditorTowers",
+    "path": "folders/Objects/Editor/EditorTowers.yy",
+  },
+  "parentObjectId": {
+    "name": "objTowerEditorParent",
+    "path": "objects/objTowerEditorParent/objTowerEditorParent.yy",
+  },
+  "persistent": false,
+  "physicsAngularDamping": 0.1,
+  "physicsDensity": 0.5,
+  "physicsFriction": 0.2,
+  "physicsGroup": 1,
+  "physicsKinematic": false,
+  "physicsLinearDamping": 0.1,
+  "physicsObject": false,
+  "physicsRestitution": 0.1,
+  "physicsSensor": false,
+  "physicsShape": 1,
+  "physicsShapePoints": [],
+  "physicsStartAwake": true,
+  "properties": [],
+  "solid": false,
+  "spriteId": {
+    "name": "sprCollector",
+    "path": "sprites/sprCollector/sprCollector.yy",
+  },
+  "spriteMaskId": null,
+  "visible": true,
+}

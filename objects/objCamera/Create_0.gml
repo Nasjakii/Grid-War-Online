@@ -20,6 +20,8 @@ var base_pos = scr_base_pos();
 start_x = base_pos[0] * tile_size - cam_width * gap;
 start_y = base_pos[1] * tile_size - cam_height * gap;
 
+
+
 view_camera[0] = camera_create_view(start_x,start_y,cam_width, cam_height);
 
 
@@ -30,6 +32,6 @@ grabbing = false;
 
 scroll_speed = 60;
 min_view_width = 100;
-max_view_width = global.room_size * 2.5;
+max_view_width = room_width * 2.5;
 
 cam_speed = 5;

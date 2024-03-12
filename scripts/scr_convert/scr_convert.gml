@@ -1,7 +1,7 @@
 function scr_convert_position_grid(field_x, field_y){
 	var pos = [];
-	pos[0] = objGame.field_x + tile_size * field_x;
-	pos[1] = objGame.field_y + tile_size * field_y;
+	pos[0] = tile_size * field_x;
+	pos[1] = tile_size * field_y;
 	return pos;
 }
 

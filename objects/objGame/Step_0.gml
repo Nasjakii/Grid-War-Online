@@ -9,12 +9,12 @@ if debugging {
 	
 
 	if keyboard_check_released(vk_f12) {
-		draw_grid = !draw_grid;
+		objGrid.draw_grid = !objGrid.draw_grid;
 	}
 
 
 	if keyboard_check_released(vk_f5) {
-		disable_fog = !disable_fog;
+		objGrid.disable_fog = !objGrid.disable_fog;
 	}
 	if keyboard_check_released(vk_f3) {
 		objPlayer.money += 10000;
@@ -49,6 +49,27 @@ if (action) action_step++ else action_step = 0;
 
 #endregion
 
+#region action order 
+
+if action_step == 1 {
+	
+	//create list of planned object with positions OPTIMIZATION
+	
+	//create objects
+	for(var i = 0; i < ds_grid_width(objGrid.field_grid_planned_objects); i++) {
+		for(var i2 = 0; i2 < ds_grid_height(objGrid.field_grid_planned_objects); i2++) {
+			
+			var object = ds_grid_get(objGrid.field_grid_planned_objects, i, i2);
+			if object != -1 {
+				scr_create(object, i, i2);
+			}
+		}
+	}
+}
+
+#endregion
+
+
 #region first start
 
 if first_start && game_running {
@@ -61,22 +82,3 @@ if first_start && game_running {
 
 #endregion
 
-#region action order 
-
-if action_step == 1 {
-	
-	//create list of planned object with positions OPTIMIZATION
-	
-	//create objects
-	for(var i = 0; i < ds_grid_width(field_grid_planned_objects); i++) {
-		for(var i2 = 0; i2 < ds_grid_height(field_grid_planned_objects); i2++) {
-			
-			var object = ds_grid_get(field_grid_planned_objects, i, i2);
-			if object != -1 {
-				scr_create(object, i, i2);
-			}
-		}
-	}
-}
-
-#endregion

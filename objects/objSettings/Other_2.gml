@@ -19,9 +19,10 @@ draw_set_font(foDefault);
 
 global.socket = undefined;
 
+global.max_players = 4;
+
 ini_open("Savefile.ini");
 
-global.max_players = ini_read_real("Settings", "max_players", 3);
 global.win_option = ini_read_string("Settings", "win_option", "Bases"); //Bases, Everything
 global.bullets_show_always = ini_read_real("Settings", "bullets_show_always", 0);
 
@@ -32,13 +33,11 @@ global.network_debugging = false;
 global.planning_time = ini_read_real("Settings", "planning_time",2 * game_get_speed(gamespeed_fps));
 
 
-
-global.room_size = ini_read_real("Settings", "room_size", 320);
-
 ini_close();
 
+global.map_file_name = "";
 
-
+global.room_size = tile_size * 10;
 
 //network
 global.host_number = -1;

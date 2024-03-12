@@ -9,7 +9,7 @@ if objGame.action {
 }
 
 //speed just not to get the error message of out of grid size
-if x <= speed || x >= objGame.field_width * tile_size - speed || y <= speed || y >= objGame.field_height * tile_size - speed  {
+if x <= speed || x >= objGrid.field_width * tile_size - speed || y <= speed || y >= objGrid.field_height * tile_size - speed  {
 	instance_destroy(self);
 }
 

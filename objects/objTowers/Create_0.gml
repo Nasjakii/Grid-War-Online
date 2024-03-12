@@ -1,4 +1,4 @@
-
+#region normal towers
 tower_list = ds_list_create();
 
 function tower(_name, _spr, _obj, _price, _description, _overlay, _upgrades) constructor {
@@ -80,10 +80,10 @@ function upgrade(_level, _variable, _value, _price) constructor {
 #region Doc
 	var doc_upgrades = [];
 
-	doc_upgrades[0] = new upgrade(0, "repair_amount", 2, 40);
-	doc_upgrades[1] = new upgrade(1, "repair_amount", 4, 80);
+	doc_upgrades[0] = new upgrade(0, "repair_amount", 4, 40);
+	doc_upgrades[1] = new upgrade(1, "repair_amount", 8, 80);
 	doc_upgrades[2] = new upgrade(2, "vision_range", 2, 160);
-	doc_upgrades[3] = new upgrade(3, "repair_amount", 8, 320);
+	doc_upgrades[3] = new upgrade(3, "repair_amount", 16, 320);
 	doc_upgrades[4] = new upgrade(4, "vision_range", 3, 640);
 	
 	var text = "Refills health of allied towers in range";
@@ -108,11 +108,11 @@ function upgrade(_level, _variable, _value, _price) constructor {
 #region Wall
 	var wall_upgrades = [];
 
-	wall_upgrades[0] = new upgrade(0, "reload_time", 3, 20);
-	wall_upgrades[1] = new upgrade(1, "missile_damage", 20, 40);
-	wall_upgrades[2] = new upgrade(2, "reload_time", 2, 160);
-	wall_upgrades[3] = new upgrade(3, "missile_damage", 40, 320);
-	wall_upgrades[4] = new upgrade(4, "missile_aoe", 3, 640);
+	wall_upgrades[0] = new upgrade(0, "hp_max", 20, 20);
+	wall_upgrades[1] = new upgrade(1, "hp_max", 40, 40);
+	wall_upgrades[2] = new upgrade(2, "hp_max", 120, 160);
+	wall_upgrades[3] = new upgrade(3, "vision_range", 2, 320);
+	wall_upgrades[4] = new upgrade(4, "hp_max", 360, 640);
 	
 	var text = "Blocking enemy bullets and letting through allied bullets";
 	
@@ -133,3 +133,93 @@ function upgrade(_level, _variable, _value, _price) constructor {
 	ds_list_add(tower_list, new tower("Banger", sprBanger, objBanger, 50, text, "Banger", banger_upgrades));
 #endregion
 
+#endregion
+
+
+
+#region normal towers
+tower_list_editor = ds_list_create();
+
+function tower_editor(_name, _spr, _obj, _price, _description, _overlay) constructor {
+	self.name = _name;
+	self.object = _obj;
+	self.sprite = _spr;
+	self.price = 0;
+	self.description = _description;
+	self.overlay = _overlay;
+
+	
+}
+
+
+
+#region Base
+
+
+	var text = "The center of your operation, in Base-Mode you lose when all your Bases are destroyed";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Base", sprBase, objBaseEditor, 1000, text, "Upgrade"));
+#endregion
+
+#region Collector
+
+	var text = "Collects money for every empty tile in its vision range";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Collector", sprCollector, objCollectorEditor, 0, text, "Upgrade"));
+#endregion
+
+#region Cannon
+
+	var text = "Shoots light bullets in the direction you specify it to";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Cannon", sprCannon, objCannonEditor, 30, text, "Cannon"));
+#endregion
+
+#region Radar
+
+	
+	var text = "A Tower with a huge vision range";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Radar", sprRadar, objRadarEditor, 30, text, "Upgrade"));
+#endregion
+
+#region Doc
+
+	var text = "Refills health of allied towers in range";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Doc", sprDoc, objDocEditor, 10, text, "Upgrade"));
+#endregion
+
+#region Striker
+
+	
+	var text = "A powerful tower with infinite range, select the target and it wont miss";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Striker", sprStriker, objStrikerEditor, 2000, text, "Striker"));
+#endregion
+
+#region Wall
+
+	
+	var text = "Blocking enemy bullets and letting through allied bullets";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Wall", sprWall, objWallEditor, 5, text, "Upgrade"));
+#endregion
+
+#region Banger
+
+	
+	var text = "Powerful bullets that smash trough walls and hit the Towers directly behind it";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Banger", sprBanger, objBangerEditor, 50, text, "Banger"));
+#endregion
+
+#region Rock
+
+	
+	var text = "Rock Solid";
+	
+	ds_list_add(tower_list_editor, new tower_editor("Rock", sprTreasure, objTreasure, 50, text, "Rock"));
+#endregion
+
+#endregion

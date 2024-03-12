@@ -21,6 +21,9 @@ if grabbing {
 	var new_x = view_x + grab_diff_x;
 	var new_y = view_y + grab_diff_y;
 
+	new_x = clamp(new_x, -camera_get_view_width(cam) * 0.9, objGrid.field_width * tile_size * 0.9);
+	new_y = clamp(new_y, -camera_get_view_height(cam) * 0.9, objGrid.field_height * tile_size * 0.9);
+
 	camera_set_view_pos(cam, new_x, new_y);
 }
 
@@ -33,24 +36,22 @@ if mouse_check_button_released(mb_middle) && grabbing {
 }
 
 if mouse_wheel_up() {
-	var cam = view_camera[0];
 	
 	var width = camera_get_view_width(cam);
 	var height = camera_get_view_height(cam);
 	if width - scroll_speed > min_view_width {
 		camera_set_view_size(cam, width - scroll_speed, height - scroll_speed * 9/16);
+		
 	}
 }
 if mouse_wheel_down() {
-	var cam = view_camera[0];
-	
-	
-	
+
 	var width = camera_get_view_width(cam);
 	//scroll_speed = clamp(width - min_view_width, 60, 2000);
 	var height = camera_get_view_height(cam);
 	if width + scroll_speed < max_view_width {
 		camera_set_view_size(cam, width + scroll_speed, height + scroll_speed * 9/16);
+		
 	}
 }
 
@@ -62,13 +63,13 @@ if !grabbing {
 		cam_vspeed = -cam_speed;
 	}
 	if keyboard_check_direct(vk_down) || keyboard_check_direct(ord("S")) {
-		var cam_vspeed = cam_speed;
+		cam_vspeed = cam_speed;
 	}
 	if keyboard_check_direct(vk_left) || keyboard_check_direct(ord("A")) {
 		cam_hspeed = -cam_speed;
 	}								   
 	if keyboard_check_direct(vk_right) || keyboard_check_direct(ord("D")) {
-		var cam_hspeed = cam_speed;
+		cam_hspeed = cam_speed;
 	}
 
 	camera_set_view_pos(cam, view_x + cam_hspeed, view_y + cam_vspeed);

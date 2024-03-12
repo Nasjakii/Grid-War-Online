@@ -26,8 +26,8 @@ if fly_down && objGame.action {
 		//aoe damage
 		for(var i = -missile_aoe; i <= missile_aoe; i++) {
 			for(var i2 = -missile_aoe; i2 <= missile_aoe; i2++) {
-				var field_x = clamp(target_field_x + i, 0, objGame.field_width - 1);
-				var field_y = clamp(target_field_y + i2, 0, objGame.field_height - 1);
+				var field_x = clamp(target_field_x + i, 0, objGrid.field_width - 1);
+				var field_y = clamp(target_field_y + i2, 0, objGrid.field_height - 1);
 				var inst = scr_get_tower(field_x, field_y);
 				
 				if inst > 0 && object_is_ancestor(inst.object_index,objTowerParent) {

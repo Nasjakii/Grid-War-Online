@@ -26,6 +26,12 @@ if show_stats {
 	
 }
 
+
+if keyboard_check_pressed(vk_escape) {
+	show_menu = !show_menu;
+}
+
+
 if show_menu {
 	draw_set_alpha(0.6);
 	draw_set_color(c_dkgray);
@@ -56,16 +62,13 @@ if keyboard_check_released(vk_space) && global.is_host {
 	show_menu = false;
 }
 
-if keyboard_check_pressed(vk_escape) {
-	show_menu = !show_menu;
-}
 
 var game_state = objPlayer.game_state;
 if game_state == "lost" || game_state == "won" {
 	scr_draw_set(fa_center, fa_middle, c_white);
 	draw_set_font(foDefaultBig);
 	draw_text(gui_width / 2, gui_height / 2, "You " + objPlayer.game_state);
-	disable_fog = true;
+	objGrid.disable_fog = true;
 	
 	if global.campaign && game_state == "won" {
 		var next = scr_button_gui(sprNextButton, gui_width / 2, gui_height / 2, 1);

@@ -1,6 +1,6 @@
 function scr_create(object, field_x, field_y, player_num = global.player_number){
 	
-	if global.campaign {
+	if global.campaign || global.editor {
 		scr_place_tower(player_num, field_x, field_y, object);
 		return;
 	}
@@ -21,10 +21,10 @@ function scr_place_tower(player_num, field_x ,field_y, object){
 	if player_num == global.player_number lay = "Tower";
 	var inst = instance_create_layer(field_x * tile_size,field_y * tile_size, lay, object, {player_number : player_num});
 	
-	ds_grid_set(objGame.field_grid_instances, field_x, field_y, inst);
-	ds_grid_set(objGame.field_grid, field_x, field_y, object)
-	ds_grid_set(objGame.field_grid_planned_objects, field_x, field_y, -1);
-	ds_grid_set(objGame.field_grid_planned_by, field_x, field_y, -1);
+	ds_grid_set(objGrid.field_grid_instances, field_x, field_y, inst);
+	ds_grid_set(objGrid.field_grid, field_x, field_y, object);
+	ds_grid_set(objGrid.field_grid_planned_objects, field_x, field_y, -1);
+	ds_grid_set(objGrid.field_grid_planned_by, field_x, field_y, -1);
 	
 	return inst;
 }

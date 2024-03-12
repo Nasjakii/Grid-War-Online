@@ -41,6 +41,10 @@ if ds_list_size(host_list) > 0 {
 		draw_set_halign(fa_left);
 		draw_text(20,20,"Notify developer, he didnt expect this many lobbies");
 	}
+} else {
+	scr_draw_set(fa_center, fa_middle, c_black);
+	draw_set_font(foDefault);
+	draw_text(room_width / 2, room_height / 6, "No lobbies active");
 }
 
 

@@ -1,4 +1,3 @@
-event_inherited();
 
 vision_range = 0;
 
@@ -18,3 +17,6 @@ reload_timer = 0;
 
 missile_damage = 10;
 missile_aoe = 1;
+
+
+event_inherited();

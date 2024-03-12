@@ -1,4 +1,4 @@
-event_inherited();
+
 
 vision_range = 1;
 
@@ -17,3 +17,5 @@ level_sprites[5] = sprCannon5;
 
 reload_time = 5;
 reload_timer = 0;
+
+event_inherited();

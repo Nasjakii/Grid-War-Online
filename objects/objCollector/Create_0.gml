@@ -1,4 +1,4 @@
-event_inherited();
+
 
 vision_range = 1;
 
@@ -14,3 +14,5 @@ level_sprites[2] = sprCollector2;
 level_sprites[3] = sprCollector3;
 level_sprites[4] = sprCollector4;
 level_sprites[5] = sprCollector5;
+
+event_inherited();

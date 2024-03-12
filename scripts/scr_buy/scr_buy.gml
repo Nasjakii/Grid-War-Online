@@ -1,9 +1,9 @@
-function scr_buy(object, field_x, field_y, player_number = global.player_number){
+function scr_buy(object, field_x, field_y, money, player_number = global.player_number){
 	
 	if occupied(field_x, field_y, player_number) || object == -1 exit;
 	
 	var price = scr_get_price(object); 
-	if objPlayer.money < price {
+	if money < price {
 		scr_gui_message("Not enough money", 2 * game_speed);
 		return -1;
 	}
@@ -15,7 +15,7 @@ function scr_buy(object, field_x, field_y, player_number = global.player_number)
 
 function scr_occupy_field(field_x, field_y, player_num = global.player_number) {
 	
-	if global.campaign {
+	if global.campaign || global.editor {
 		scr_change_tile(field_x, field_y, player_num);
 		return;
 	}
@@ -33,13 +33,18 @@ function scr_change_tile(field_x, field_y, player_num) {
 	var lay_id = layer_get_id("Ground");
 	var map_id = layer_tilemap_get_id(lay_id);
 	
+	if player_num >= 98 {
+		tilemap_set(map_id, 1, field_x, field_y);
+		return;
+	}
+	
 	tilemap_set(map_id, player_num + 2, field_x, field_y);
 }
 
 
 //returns if the field is already occupied by another player
 function occupied(field_x, field_y, player_number = global.player_number) {
-	var occ_by = ds_grid_get(objGame.field_grid_planned_by, field_x, field_y);
+	var occ_by = ds_grid_get(objGrid.field_grid_planned_by, field_x, field_y);
 	return !(occ_by == player_number || occ_by == -1);
 }
 

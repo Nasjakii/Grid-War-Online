@@ -7,7 +7,7 @@ if objGame.action_step == 1 {
 	var pos = scr_convert_position_coordinates(x,y);
 	for(var i = -vision_range; i <= vision_range; i++){
 		for(var i2 = -vision_range; i2 <= vision_range; i2++){
-			var inst = ds_grid_get(objGame.field_grid_instances, clamp(pos[0] + i, 0, objGame.field_width - 1), clamp(pos[1] + i2, 0, objGame.field_height - 1));
+			var inst = ds_grid_get(objGrid.field_grid_instances, clamp(pos[0] + i, 0, objGrid.field_width - 1), clamp(pos[1] + i2, 0, objGrid.field_height - 1));
 			if inst <= 0 || !instance_exists(inst) || inst == id continue;
 			if inst.hp < inst.hp_max && inst.player_number == player_number {
 				inst.hp = min(inst.hp + repair_amount, inst.hp_max);

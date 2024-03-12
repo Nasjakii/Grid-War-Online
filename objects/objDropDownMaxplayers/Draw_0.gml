@@ -19,6 +19,7 @@ if extended {
 		draw_text(x + 20,y + sprite_height / 2 + i * sprite_height, options[i - 1]);
 		if point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top + sprite_height * i, bbox_right, bbox_bottom + sprite_height * i) && left_released {
 			click = i;
+			extended = false;
 		}
 
 	}
@@ -26,10 +27,9 @@ if extended {
 
 
 if click >= 1 {
-	ini_open("Savefile.ini");
+
 	global.max_players = options[click - 1] - 1;
-	ini_write_string("Settings","max_players",global.max_players);
-	ini_close();
+
 	picked = global.max_players + 1;
 }
 

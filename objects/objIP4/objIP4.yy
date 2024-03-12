@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "DropDown",
-    "path": "folders/Objects/Menu/DropDown.yy",
+    "name": "WriteBox",
+    "path": "folders/Objects/Menu/WriteBox.yy",
   },
   "parentObjectId": null,
   "persistent": false,

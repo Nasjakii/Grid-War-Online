@@ -1,6 +1,6 @@
 function scr_update_tower(field_x, field_y, var_to_update, new_val, _upgrade = false){
 	
-	if global.campaign {
+	if global.campaign || global.editor {
 		scr_update_tower_apply(field_x, field_y, var_to_update, new_val, _upgrade);
 		return;
 	}
@@ -20,7 +20,7 @@ function scr_update_tower(field_x, field_y, var_to_update, new_val, _upgrade = f
 }
 
 function scr_update_tower_apply(field_x, field_y, var_to_update, new_val, _upgrade = false) {	
-	var inst = ds_grid_get(objGame.field_grid_instances, field_x , field_y);
+	var inst = ds_grid_get(objGrid.field_grid_instances, field_x , field_y);
 	if inst <= 0 || !instance_exists(inst) return;
 	if var_to_update == "hp_max" variable_instance_set(inst, "hp", inst.hp + new_val - inst.hp_max);
 	variable_instance_set(inst, var_to_update, new_val);
