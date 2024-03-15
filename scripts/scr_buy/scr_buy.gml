@@ -1,6 +1,8 @@
 function scr_buy(object, field_x, field_y, money, player_number = global.player_number){
 	
-	if occupied(field_x, field_y, player_number) || object == -1 exit;
+	if !scr_in_vision_grid(field_x, field_y) exit;
+	if !scr_get_tower(field_x, field_y) == -1 exit;
+	if occupied(field_x, field_y, player_number) || object <= 0 exit;
 	
 	var price = scr_get_price(object); 
 	if money < price {
@@ -63,7 +65,7 @@ function scr_get_price(tower_obj){
 		}
 	}
 	
-	if price == -1 show_debug_message("Price Error With: " + string(obj));
+	if price == -1 show_debug_message("Price Error With: " + string(tower_obj));
 
 	return price;
 }

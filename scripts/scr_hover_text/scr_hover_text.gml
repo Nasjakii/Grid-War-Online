@@ -13,7 +13,7 @@ function scr_hover_text_header(box_arr, str, text_color, font, offset = 20){
 
 function scr_hover_text_body(str, text_color, font){
 
-	hover_message_body = true;
+	hover_message_body_active = true;
 	hover_message_body_str = str;
 	hover_message_body_text_color = c_black;
 	hover_message_body_font = font;

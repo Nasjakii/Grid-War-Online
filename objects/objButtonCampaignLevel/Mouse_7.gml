@@ -5,7 +5,7 @@ if room_exists(_room) && unlocked {
 	global.is_host = true;
 	global.player_number = 0;
 	global.max_players = 1;
-	global.win_option = "Bases";
+	global.win_option = "Testing";
 	
 	room_goto(_room);
 }

@@ -27,9 +27,6 @@ if show_stats {
 }
 
 
-if keyboard_check_pressed(vk_escape) {
-	show_menu = !show_menu;
-}
 
 
 if show_menu {
@@ -101,10 +98,7 @@ if !global.is_host && game_running == false {
 
 //draw_sprite_part(sprTimer, 0, 0,0,sprite_get_width(sprTimer) / (planning_time + action_time) * timer, sprite_get_height(sprTimer), 0, 0);
 
-var time = planning_time + action_time;
 var width = gui_width / 3;
-var height = gui_height / 20;
-var part = planning_time / time;
 
 draw_set_font(foDebugSmall);
 scr_draw_set(fa_left, fa_top, c_black);
@@ -117,10 +111,20 @@ if debugging {
 
 
 
-var plan_width = width * part;
-draw_rectangle_color(0, 0, plan_width, height, c_black, c_black, c_black, c_black, true);
-draw_rectangle_color(0, 0, plan_width * min(timer / planning_time, 1), height, c_black, c_black, c_black, c_black, false);
+var spr = sprUITimerBar;
+var cell_count = planning_time / game_speed * 3;
+var planning_timer = cell_count * round(min(timer / planning_time, 1) * cell_count) / cell_count;
 
-var act_width = width - plan_width;
-draw_rectangle_color(plan_width, 0, plan_width + act_width * clamp((timer - planning_time) / action_time, 0, 1), height, c_red, c_red, c_red, c_red, false);
-draw_rectangle_color(plan_width, 0, width, height, c_red, c_red, c_red, c_red, true);
+draw_sprite_ext(spr, 0, 0,0, cell_count,1, 0, c_white, 1);
+draw_sprite_ext(spr, 1, 0,0, planning_timer,1, 0, c_white, 1);
+
+var action_timer_xoffset = sprite_get_width(spr) * cell_count;
+cell_count = action_time / game_speed * 3;
+var action_timer = cell_count * round(clamp((timer - planning_time) / action_time, 0, 1) * cell_count) / cell_count;
+
+draw_sprite_ext(spr, 2, action_timer_xoffset, 0, cell_count, 1, 0, c_white, 1);
+draw_sprite_ext(spr, 3, action_timer_xoffset + action_timer,0, action_timer,1, 0, c_white, 1);
+
+
+
+

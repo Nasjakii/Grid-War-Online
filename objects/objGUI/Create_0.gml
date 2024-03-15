@@ -1,9 +1,6 @@
 
 overlay_gui_hovered = false;
 
-overlay_image_size = 32;
-overlay_offset = overlay_image_size / 8;
-
 overlay_type = "";
 overlay_x = 0;
 overlay_y = 0;
@@ -27,7 +24,10 @@ hover_message_offset = 20;
 hover_message_tag = false;
 hover_message_tag_text = "";
 
-hover_message_body = false;
+hover_message_body_active = false;
 hover_message_body_text_color = c_black;
 hover_message_body_font = foDefault;
 hover_message_body_str = "";
+
+destroy_timer = 0;
+destroy_duration = 1 * game_speed;

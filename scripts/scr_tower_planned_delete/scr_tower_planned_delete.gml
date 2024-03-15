@@ -8,7 +8,7 @@ function scr_tower_planned_delete(field_x, field_y){
 	
 		objPlayer.money += p_before;
 		
-		scr_plan_tower(field_x, field_y, 0);
+		scr_plan_tower(field_x, field_y, -1);
 	}
 
 	

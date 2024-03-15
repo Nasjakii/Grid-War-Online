@@ -1,7 +1,4 @@
 
-if keyboard_check_pressed(vk_escape) {
-	show_menu = !show_menu;
-}
 
 
 if show_menu {

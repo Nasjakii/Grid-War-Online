@@ -1,4 +1,4 @@
-function scr_create(object, field_x, field_y, player_num = global.player_number){
+function scr_tower_create(object, field_x, field_y, player_num = global.player_number){
 	
 	if global.campaign || global.editor {
 		scr_place_tower(player_num, field_x, field_y, object);

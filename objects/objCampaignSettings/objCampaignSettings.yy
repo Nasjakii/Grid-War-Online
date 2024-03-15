@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Campaign",
-    "path": "folders/Objects/Game/Campaign.yy",
+    "path": "folders/Objects/Campaign.yy",
   },
   "parentObjectId": null,
   "persistent": false,

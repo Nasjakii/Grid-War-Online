@@ -1,6 +1,7 @@
 /// @description all network functions to send or receive data
 
 function scr_receive_data(sender = undefined) {
+	
 	//receive data
 	var t_buffer = ds_map_find_value(async_load, "buffer"); 
 
@@ -8,6 +9,7 @@ function scr_receive_data(sender = undefined) {
 	var json = buffer_read(t_buffer, buffer_string); //read the json
 	var response = json_decode(json);
 	if global.network_debugging show_debug_message("< " + string(json));
+	if global.network_debugging show_debug_message(string(sender));
 	
     var cmd_type = ds_map_find_value(response, "type");
 	
@@ -77,7 +79,6 @@ function scr_receive_data(sender = undefined) {
 						//arr[i2] = ds_grid_get(objGrid.field_grid, i, i2);
 						
 					}
-					scr_send_buffer(g_buffer);
 					buffer_delete(g_buffer);
 				}
 				

@@ -1,17 +1,6 @@
 
 function scr_overlay_control(type, money){
 	switch(type) {
-		case("Multi-Buy"):
-			if left_released {
-				var mouse_pos = scr_convert_position_coordinates(mouse_x, mouse_y);
-			
-			
-				if !ds_grid_get(objGrid.field_grid_vision, mouse_pos[0], mouse_pos[1]) break;
-				if 0 != ds_grid_get(objGrid.field_grid_instances, mouse_pos[0], mouse_pos[1]) break;
-			
-				scr_buy(multi_buy_obj, mouse_pos[0], mouse_pos[1], money);
-			}
-		break;
 		case("Upgrade"):
 	
 			var overlay_width = sprite_get_width(sprUpgrade);

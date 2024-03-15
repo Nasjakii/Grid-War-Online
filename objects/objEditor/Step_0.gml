@@ -1,10 +1,16 @@
+if keyboard_check_pressed(vk_escape)  {
+	show_menu = !show_menu;
+}
 
 
 hover_set = false;
 
 
 #region multi buy
-	scr_hotkeys_towers(objTowers.tower_list_editor);
+	var key = scr_get_numkey();
+	if key != -1 {
+		multi_buy_obj = ds_list_find_value(tower_list, key).object;
+	}
 	
 	if right_released {
 		multi_buy_obj = -1;
@@ -31,7 +37,7 @@ if right_released {
 
 
 var field_pos = scr_get_field_position();
-if !scr_on_field() exit;
+if !scr_on_field(field_pos[0], field_pos[1]) exit;
 
 var field_object = ds_grid_get(objGrid.field_grid, field_pos[0], field_pos[1]);
 

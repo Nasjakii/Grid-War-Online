@@ -22,10 +22,10 @@ if place_meeting(x,y,objTowerParent) {
 	if inst.player_number != player_number {
 
 		var field_pos = scr_convert_position_coordinates(inst.x,inst.y);
-		var hits = scr_grid_get_instances_triangle(field_pos[0], field_pos[1], image_angle, shrapnel_range);
+		var hits = scr_grid_get_instances_triangle(field_pos[0], field_pos[1], direction, shrapnel_range);
 
 		for(var i = 0; i < array_length(hits); i++) {
-			if hits[i] != -1 && instance_exists(hits[i]) {
+			if hits[i] != -1 && instance_exists(hits[i]) { //and is enemy
 				hits[i].hp -= damage;
 				scr_update_tower(field_pos[0], field_pos[1] - 1,"hp",hits[i].hp);
 			}

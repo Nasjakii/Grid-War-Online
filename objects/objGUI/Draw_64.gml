@@ -1,4 +1,10 @@
-
+//draw destroy timer
+if destroy_timer > 0 {
+	draw_set_color(c_black);
+	draw_rectangle(mouse_gui_x, mouse_gui_y, mouse_gui_x + 100, mouse_gui_y + 20, false);
+	draw_set_color(c_red);
+	draw_rectangle(mouse_gui_x, mouse_gui_y, mouse_gui_x + (destroy_timer / destroy_duration) * 100, mouse_gui_y + 20, false);
+}
 
 if !scr_mouse_gui_in_array(hover_message_box_array) exit;
 
@@ -30,7 +36,7 @@ if hover_message_tag {
 	hover_message_tag = false;
 }
 
-if hover_message_body {
+if hover_message_body_active {
 	var ygap = 10;
 	var text_offset_x = 10;
 	var body_y = ypos + ygap + string_height(header_str);
@@ -45,7 +51,7 @@ if hover_message_body {
 	scr_draw_set(fa_left, fa_top, hover_message_body_text_color);
 	draw_text_ext(xpos + text_offset_x + padding, body_y + padding, hover_message_body_str, sep, width);
 	
-	hover_message_body = false;
+	hover_message_body_active = false;
 }
 
 

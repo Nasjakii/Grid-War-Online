@@ -19,19 +19,6 @@ function upgrade(_level, _variable, _value, _price) constructor {
 }
 
 
-#region Base
-	var base_upgrades = [];
-
-	base_upgrades[0] = new upgrade(0, "hp_max", 20, 20);
-	base_upgrades[1] = new upgrade(1, "hp_max", 30, 40);
-	base_upgrades[2] = new upgrade(2, "hp_max", 40, 80);
-	base_upgrades[3] = new upgrade(3, "hp_max", 50, 160);
-	base_upgrades[4] = new upgrade(4, "vision_range", 4, 320);
-	
-	var text = "The center of your operation, in Base-Mode you lose when all your Bases are destroyed";
-	
-	ds_list_add(tower_list, new tower("Base", sprBase, objBase, 1000, text, "Upgrade", base_upgrades));
-#endregion
 
 #region Collector
 	var collector_upgrades = [];
@@ -46,6 +33,20 @@ function upgrade(_level, _variable, _value, _price) constructor {
 	var text = "Collects money for every empty tile in its vision range";
 	
 	ds_list_add(tower_list, new tower("Collector", sprCollector, objCollector, 0, text, "Upgrade", collector_upgrades));
+#endregion
+
+#region Wall
+	var wall_upgrades = [];
+
+	wall_upgrades[0] = new upgrade(0, "hp_max", 20, 20);
+	wall_upgrades[1] = new upgrade(1, "hp_max", 40, 40);
+	wall_upgrades[2] = new upgrade(2, "hp_max", 120, 160);
+	wall_upgrades[3] = new upgrade(3, "vision_range", 2, 320);
+	wall_upgrades[4] = new upgrade(4, "hp_max", 360, 640);
+	
+	var text = "Blocking enemy bullets and letting through allied bullets";
+	
+	ds_list_add(tower_list, new tower("Wall", sprWall, objWall, 5, text, "Upgrade", wall_upgrades));
 #endregion
 
 #region Cannon
@@ -66,11 +67,11 @@ function upgrade(_level, _variable, _value, _price) constructor {
 #region Radar
 	var radar_upgrades = [];
 
-	radar_upgrades[0] = new upgrade(0, "vision_range", 4, 40);
-	radar_upgrades[1] = new upgrade(1, "vision_range", 5, 80);
-	radar_upgrades[2] = new upgrade(2, "vision_range", 6, 160);
-	radar_upgrades[3] = new upgrade(3, "vision_range", 7, 320);
-	radar_upgrades[4] = new upgrade(4, "vision_range", 9, 640);
+	radar_upgrades[0] = new upgrade(0, "vision_range", 4, 80);
+	radar_upgrades[1] = new upgrade(1, "vision_range", 5, 160);
+	radar_upgrades[2] = new upgrade(2, "vision_range", 6, 320);
+	radar_upgrades[3] = new upgrade(3, "vision_range", 7, 640);
+	radar_upgrades[4] = new upgrade(4, "vision_range", 8, 1000);
 	
 	var text = "A Tower with a huge vision range";
 	
@@ -91,33 +92,6 @@ function upgrade(_level, _variable, _value, _price) constructor {
 	ds_list_add(tower_list, new tower("Doc", sprDoc, objDoc, 10, text, "Upgrade", doc_upgrades));
 #endregion
 
-#region Striker
-	var striker_upgrades = [];
-
-	striker_upgrades[0] = new upgrade(0, "reload_time", 3, 2000);
-	striker_upgrades[1] = new upgrade(1, "missile_damage", 20, 2000);
-	striker_upgrades[2] = new upgrade(2, "reload_time", 2, 4000);
-	striker_upgrades[3] = new upgrade(3, "missile_damage", 40, 6000);
-	striker_upgrades[4] = new upgrade(4, "missile_aoe", 3, 15000);
-	
-	var text = "A powerful tower with infinite range, select the target and it wont miss";
-	
-	ds_list_add(tower_list, new tower("Striker", sprStriker, objStriker, 2000, text, "Striker", striker_upgrades));
-#endregion
-
-#region Wall
-	var wall_upgrades = [];
-
-	wall_upgrades[0] = new upgrade(0, "hp_max", 20, 20);
-	wall_upgrades[1] = new upgrade(1, "hp_max", 40, 40);
-	wall_upgrades[2] = new upgrade(2, "hp_max", 120, 160);
-	wall_upgrades[3] = new upgrade(3, "vision_range", 2, 320);
-	wall_upgrades[4] = new upgrade(4, "hp_max", 360, 640);
-	
-	var text = "Blocking enemy bullets and letting through allied bullets";
-	
-	ds_list_add(tower_list, new tower("Wall", sprWall, objWall, 5, text, "Upgrade", wall_upgrades));
-#endregion
 
 #region Banger
 	var banger_upgrades = [];
@@ -133,11 +107,40 @@ function upgrade(_level, _variable, _value, _price) constructor {
 	ds_list_add(tower_list, new tower("Banger", sprBanger, objBanger, 50, text, "Banger", banger_upgrades));
 #endregion
 
+#region Base
+	var base_upgrades = [];
+
+	base_upgrades[0] = new upgrade(0, "hp_max", 20, 20);
+	base_upgrades[1] = new upgrade(1, "hp_max", 30, 40);
+	base_upgrades[2] = new upgrade(2, "hp_max", 40, 80);
+	base_upgrades[3] = new upgrade(3, "hp_max", 50, 160);
+	base_upgrades[4] = new upgrade(4, "vision_range", 4, 320);
+	
+	var text = "The center of your operation, in Base-Mode you lose when all your Bases are destroyed";
+	
+	ds_list_add(tower_list, new tower("Base", sprBase, objBase, 1000, text, "Upgrade", base_upgrades));
+#endregion
+
+
+#region Striker
+	var striker_upgrades = [];
+
+	striker_upgrades[0] = new upgrade(0, "reload_time", 3, 2000);
+	striker_upgrades[1] = new upgrade(1, "missile_damage", 20, 2000);
+	striker_upgrades[2] = new upgrade(2, "reload_time", 2, 4000);
+	striker_upgrades[3] = new upgrade(3, "missile_damage", 40, 6000);
+	striker_upgrades[4] = new upgrade(4, "missile_aoe", 3, 15000);
+	
+	var text = "A powerful tower with infinite range, select the target and it wont miss";
+	
+	ds_list_add(tower_list, new tower("Striker", sprStriker, objStriker, 2000, text, "Striker", striker_upgrades));
+#endregion
+
 #endregion
 
 
 
-#region normal towers
+#region editor towers
 tower_list_editor = ds_list_create();
 
 function tower_editor(_name, _spr, _obj, _price, _description, _overlay) constructor {

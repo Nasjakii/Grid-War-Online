@@ -1,4 +1,9 @@
 
+if keyboard_check_pressed(vk_escape) && objGUI.overlay_type == "" {
+	show_menu = !show_menu;
+}
+
+
 #region debugging
 if keyboard_check_released(vk_f1) {
 	debugging = !debugging;
@@ -61,7 +66,7 @@ if action_step == 1 {
 			
 			var object = ds_grid_get(objGrid.field_grid_planned_objects, i, i2);
 			if object != -1 {
-				scr_create(object, i, i2);
+				scr_tower_create(object, i, i2);
 			}
 		}
 	}

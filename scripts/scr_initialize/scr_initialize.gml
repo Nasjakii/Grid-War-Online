@@ -1,8 +1,8 @@
-function scr_initialize_players(){
+function scr_initialize_players(player_num = global.player_number){
 	var pos = scr_base_pos();
 	
-	objPlayer.money += scr_get_price(objBase);
-	scr_buy(objBase, pos[0], pos[1], objPlayer.money);
+	scr_occupy_field(pos[0], pos[1], player_num);
+	scr_tower_create(objBase, pos[0], pos[1], player_num);
 	
 }
 
@@ -89,26 +89,26 @@ function scr_initialize_neutrals() {
 
 		var xpos = floor(objGrid.field_width / 2);
 		var ypos = floor(objGrid.field_height / 2);
-		scr_create(objTreasure, xpos + 1, ypos + 1, 100);
-		scr_create(objTreasure, xpos - 1, ypos + 1, 100);
-		scr_create(objTreasure, xpos + 1, ypos - 1, 100);
-		scr_create(objTreasure, xpos - 1, ypos - 1, 100);
+		scr_tower_create(objTreasure, xpos + 1, ypos + 1, 100);
+		scr_tower_create(objTreasure, xpos - 1, ypos + 1, 100);
+		scr_tower_create(objTreasure, xpos + 1, ypos - 1, 100);
+		scr_tower_create(objTreasure, xpos - 1, ypos - 1, 100);
 		
-		scr_create(objTreasure, xpos, 0, 100);
-		scr_create(objTreasure, xpos, 1, 100);
-		scr_create(objTreasure, xpos, 2, 100);
+		scr_tower_create(objTreasure, xpos, 0, 100);
+		scr_tower_create(objTreasure, xpos, 1, 100);
+		scr_tower_create(objTreasure, xpos, 2, 100);
 		
-		scr_create(objTreasure, xpos, objGrid.field_height - 1, 100);
-		scr_create(objTreasure, xpos, objGrid.field_height - 2, 100);
-		scr_create(objTreasure, xpos, objGrid.field_height - 3, 100);
+		scr_tower_create(objTreasure, xpos, objGrid.field_height - 1, 100);
+		scr_tower_create(objTreasure, xpos, objGrid.field_height - 2, 100);
+		scr_tower_create(objTreasure, xpos, objGrid.field_height - 3, 100);
 		
-		scr_create(objTreasure, 0, ypos, 100);
-		scr_create(objTreasure, 1, ypos, 100);
-		scr_create(objTreasure, 2, ypos, 100);
+		scr_tower_create(objTreasure, 0, ypos, 100);
+		scr_tower_create(objTreasure, 1, ypos, 100);
+		scr_tower_create(objTreasure, 2, ypos, 100);
 		
-		scr_create(objTreasure, objGrid.field_width - 1, ypos, 100);
-		scr_create(objTreasure, objGrid.field_width - 2, ypos, 100);
-		scr_create(objTreasure, objGrid.field_width - 3, ypos, 100);
+		scr_tower_create(objTreasure, objGrid.field_width - 1, ypos, 100);
+		scr_tower_create(objTreasure, objGrid.field_width - 2, ypos, 100);
+		scr_tower_create(objTreasure, objGrid.field_width - 3, ypos, 100);
 
 
 	
