@@ -1,6 +1,4 @@
 
-last_time = 0;
-
 
 field_width = floor(room_width / tile_size);
 field_height = floor(room_height / tile_size);

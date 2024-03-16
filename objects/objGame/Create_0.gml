@@ -17,7 +17,7 @@ action_step = 0;
 
 player_count = 0;
 
-show_menu = false;
+show_menu = true;
 show_stats = false;
 
 gui_message_timer = 0;

@@ -1,5 +1,5 @@
 
-picked = global.max_players + 1;
+picked = global.max_players;
 
 options = [4,8];
 

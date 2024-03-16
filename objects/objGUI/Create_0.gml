@@ -31,3 +31,5 @@ hover_message_body_str = "";
 
 destroy_timer = 0;
 destroy_duration = 1 * game_speed;
+
+

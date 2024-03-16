@@ -39,6 +39,7 @@ global.map_file_name = "";
 
 global.room_size = tile_size * 10;
 
+
 //network
 global.host_number = -1;
 global.player_number = 0;

@@ -2,13 +2,21 @@
 
 if fly_up {
 	y -= fly_up_speed;
+	var dir = sign(target_field_x - xstart / tile_size);
+	x += 2 * dir;
+	image_xscale = -dir;
+	
 	fly_up_speed *= fly_up_acc;
 	
-	if y < ystart - flight_height {
+	part_system_position(fly_particles, x, y);
+	part_system_angle(fly_particles, -45 * dir);
+	
+	if y < ystart - flight_height { //at max height
+		part_system_destroy(fly_particles);
 		draw = false;
 		fly_up = false;
 		fly_down = true;
-		x = (target_field_x + 0.5) * tile_size ;
+		x = (target_field_x + 0.5) * tile_size;
 		y = (target_field_y + 0.5) * tile_size - flight_height;
 	}
 }
@@ -17,7 +25,8 @@ if fly_up {
 if fly_down && objGame.action {
 	draw = true;
 	if y < target_field_y * tile_size {
-		image_angle = 180;
+		image_xscale = 1; //reset
+		image_angle = 135;
 		y += fly_down_speed;
 	} else {
 		//explosion ps

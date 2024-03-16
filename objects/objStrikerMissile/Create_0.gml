@@ -10,4 +10,6 @@ fly_up = true;
 fly_down = false;
 
 
-flight_height = 200;
+flight_height = 400;
+
+fly_particles = part_system_create_layer(layer, false, psMissileStart);

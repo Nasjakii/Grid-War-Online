@@ -73,4 +73,8 @@ if !grabbing {
 	}
 
 	camera_set_view_pos(cam, view_x + cam_hspeed, view_y + cam_vspeed);
+	
+	if keyboard_check_released(vk_space) {
+		camera_set_view_pos(cam, start_x, start_y);
+	}
 }

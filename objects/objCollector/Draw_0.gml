@@ -16,7 +16,7 @@ if objGame.action_step == 1 {
 				money_gained += money_per_field;
 				count++;
 				
-				var part_sys = part_system_create_layer(layer_get_id("Above"), false, psCollector); 
+				var part_sys = part_system_create_layer(layer_get_id("Below"), false, psCollector); 
 				var half = tile_size / 2;
 				var xpos = x + i * tile_size + half;
 				var ypos = y + i2 * tile_size + half;

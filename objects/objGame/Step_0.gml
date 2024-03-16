@@ -1,6 +1,9 @@
 
 if keyboard_check_pressed(vk_escape) && objGUI.overlay_type == "" {
 	show_menu = !show_menu;
+	
+	if global.is_host scr_game_set_running(!game_running);
+		
 }
 
 

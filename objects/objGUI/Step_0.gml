@@ -15,7 +15,10 @@ var tower_list = objTowers.tower_list;
 	}
 
 	if multi_buy_obj != -1 {
-		if keyboard_check_released(ord("Q")) multi_buy_obj = -1;
+		if keyboard_check_released(ord("Q")) {
+			multi_buy_obj = -1;
+			overlay_type = "";
+		}
 		
 		if left_released scr_buy(multi_buy_obj, gm_x, gm_y, objPlayer.money);
 	}

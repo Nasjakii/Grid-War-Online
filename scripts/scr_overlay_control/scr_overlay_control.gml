@@ -8,8 +8,13 @@ function scr_overlay_control(type, money){
 			var pos = scr_get_overlay_values(overlay_width, overlay_height);
 		
 			overlay_gui_hovered = scr_mouse_gui_in_array(pos);
+			
+			if !overlay_gui_hovered && mouse_check_button_pressed(mb_left) {
+				overlay_type = "";
+				break;
+			}
 			scr_overlay_upgrade(pos);
-		
+			
 		
 		
 		break;

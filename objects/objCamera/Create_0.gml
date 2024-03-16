@@ -11,8 +11,8 @@ display_set_gui_size(1920,1080);
 view_enabled = true;
 view_visible[0] = true;
 
-var start_x = 0;
-var start_y = 0;
+start_x = 0;
+start_y = 0;
 var gap = 0.5;
 
 var base_pos = scr_base_pos();

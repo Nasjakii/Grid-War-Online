@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprMissileStriker",
-    "path": "sprites/sprMissileStriker/sprMissileStriker.yy",
+    "name": "sprStrikerMissle",
+    "path": "sprites/sprStrikerMissle/sprStrikerMissle.yy",
   },
   "spriteMaskId": null,
   "visible": true,

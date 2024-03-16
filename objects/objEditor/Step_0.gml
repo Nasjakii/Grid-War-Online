@@ -1,3 +1,5 @@
+var tower_list = objTowers.tower_list_editor;
+
 if keyboard_check_pressed(vk_escape)  {
 	show_menu = !show_menu;
 }
@@ -9,7 +11,7 @@ hover_set = false;
 #region multi buy
 	var key = scr_get_numkey();
 	if key != -1 {
-		multi_buy_obj = ds_list_find_value(tower_list, key).object;
+		multi_buy_obj = ds_list_find_value(tower_list, key + 1).object;
 	}
 	
 	if right_released {
