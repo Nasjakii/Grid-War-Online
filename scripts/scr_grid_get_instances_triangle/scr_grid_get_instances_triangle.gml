@@ -6,7 +6,6 @@ function scr_grid_get_instances_triangle(field_x, field_y, dir, length){
 	var y_dir = sign(lengthdir_y(length, dir));
 	if dir < 0 dir += 360;
 
-	scr_debug("xdir, ydir, dir, field_x, field_y, length",x_dir, y_dir, dir, field_x, field_y, length);
 	
 	if dir mod 90 == 0 {
 		for(var i = 0; i <= length; i++) {

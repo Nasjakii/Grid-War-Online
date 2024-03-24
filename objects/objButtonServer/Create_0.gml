@@ -1,0 +1,1 @@
+if !global.is_host instance_destroy(self);

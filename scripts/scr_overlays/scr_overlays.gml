@@ -22,8 +22,9 @@ function scr_overlay_upgrade(pos) {
 		//draw upgrade 
 		draw_sprite_ext(sprUpgrade, 0, pos[0], pos[1], gui_scale, gui_scale, 0, c_white, 1);
 		
-		var inst = scr_get_tower(clicked_field[0], clicked_field[1]);
+		var inst = scr_get_tower(clicked_tower_field[0], clicked_tower_field[1]);
 		if inst == -1 {
+			check;
 			overlay_type = "";
 			return;
 		}
@@ -86,7 +87,7 @@ function scr_overlay_cannon(pos) {
 		scr_draw_rectangle(pos);
 
 		
-		var inst = ds_grid_get(objGrid.field_grid_instances, clicked_field[0], clicked_field[1]);
+		var inst = ds_grid_get(objGrid.field_grid_instances, clicked_tower_field[0], clicked_tower_field[1]);
 		if inst <= 0 || !instance_exists(inst) {
 			overlay_type = "";
 			return;
@@ -118,7 +119,7 @@ function scr_overlay_cannon(pos) {
 					if i == 1 && i2 == 2 ang = 5;
 					if i == 2 && i2 == 2 ang = 6;
 					
-					scr_update_tower(clicked_field[0], clicked_field[1], "image_index", ang);
+					scr_update_tower(clicked_tower_field[0], clicked_tower_field[1], "image_index", ang);
 					overlay_type = ""; //close overlay
 				}
 			}
@@ -132,7 +133,7 @@ function scr_overlay_striker(pos) {
 		
 
 		if scr_mouse_gui_in_array(pos) && left_released {		
-			instance_create_depth(mouse_x,mouse_y,layer_get_depth("Tower"), objTargetSetter, {call_pos : clicked_field});
+			instance_create_depth(mouse_x,mouse_y,layer_get_depth("Tower"), objTargetSetter, {call_pos : clicked_tower_field});
 			overlay_type = ""; //close overlay
 				
 		}

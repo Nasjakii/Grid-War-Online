@@ -3,7 +3,8 @@ global.max_players = 4; //elsewise grid will be other format
 var grid = instance_create_depth(0,0,0,objGrid);
 grid.disable_fog = true;
 
-var re_arr = scr_start_room(global.map_file_name);
+
+var re_arr = scr_start_room(objPersistent.map_file_editor);
 map_name = re_arr[0];
 map_size = re_arr[1];
 

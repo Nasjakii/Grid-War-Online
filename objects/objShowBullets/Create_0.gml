@@ -1,1 +1,4 @@
-image_index = global.bullets_show_always;
+
+event_inherited();
+
+image_index = objLobby.show_bullets;

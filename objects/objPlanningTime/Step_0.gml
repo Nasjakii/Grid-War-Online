@@ -1,3 +1,5 @@
+if !global.is_host exit;
+
 if left_released && change_val  {
 	change_val = false;
 	string_val = "";
@@ -13,7 +15,10 @@ if point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bo
 
 if change_val || clicked_out {
 	image_index = 1;
-	string_val = keyboard_string;
+	
+	if allow_digits && allow_text string_val = string_lettersdigits(keyboard_string);
+	else if allow_digits string_val = string_digits(keyboard_string);
+	else if allow_text string_val = string_letters(keyboard_string);
 
 	if keyboard_check_released(vk_enter) || clicked_out {
 		var new_val = 3;
@@ -23,10 +28,8 @@ if change_val || clicked_out {
 		}
 		
 		string_val = string(new_val);
-		global.planning_time = new_val * game_get_speed(gamespeed_fps);
-		ini_open("Savefile.ini");
-		ini_write_real("Settings", "planning_time",global.planning_time);
-		ini_close();
+		objLobby.planning_time = new_val * game_speed;
+		objLobby.values_changed = true;
 		change_val = false;
 		
 		clicked_out = false;

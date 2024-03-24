@@ -4,7 +4,8 @@ function scr_receive_data(sender = undefined) {
 	
 	//receive data
 	var t_buffer = ds_map_find_value(async_load, "buffer"); 
-
+	if !buffer_exists(t_buffer) exit;
+	
 	buffer_seek(t_buffer, buffer_seek_start, 0);
 	var json = buffer_read(t_buffer, buffer_string); //read the json
 	var response = json_decode(json);
@@ -17,43 +18,53 @@ function scr_receive_data(sender = undefined) {
 		case(CREATE_HOST): 
 			global.player_number = ds_map_find_value(response, "playerNumber");
 			global.host_number = ds_map_find_value(response, "hostNumber");
-			
-			room_set_width(Room1, global.room_size);
-			room_set_height(Room1, global.room_size);
-			
-			room_goto(Room1);
-
 		break;
 		case(STOP_HOST):
 			global.player_number = -1;
 			global.host_number = -1;
-			room_goto(Menu);
+			//room_goto(Menu);
 		break;
 		case(GET_HOSTS):
 			var host_list = ds_map_find_value(response, "hosts");
 			return host_list;
 		break;
-		case(JOIN_HOST):
+		case(JOIN_LOBBY):
 			if !global.is_host {
+				
 				global.player_number = ds_map_find_value(response, "playerNumber");
 				global.host_number = ds_map_find_value(response, "hostNumber");
-			
-				var game_setting_map = ds_map_find_value(response, "gamesetting");
-				global.planning_time = ds_map_find_value(game_setting_map, "planning_time");
-				global.room_size = ds_map_find_value(game_setting_map, "room_size");
-				global.bullets_show_always = ds_map_find_value(game_setting_map, "show_bullets");
-				global.win_option = ds_map_find_value(game_setting_map, "win_option");
-				global.max_players = ds_map_find_value(game_setting_map, "max_players");
 
-				room_set_width(Room1, global.room_size);
-				room_set_height(Room1, global.room_size);
+				room_goto(ServerRoom); 
 				
-				room_goto(Room1);
 			} else {
-				//info that someone spawned (playercount)
 				var player_count = ds_map_find_value(response, "playerCount");
-				objGame.player_count = player_count;
+				objLobby.player_count = player_count;
+				
 			}
+		break;
+		case(GAMESETTINGS):
+			if !global.is_host {
+				show_debug_message("< " + string(json));
+				objLobby.planning_time = ds_map_find_value(response, "planning_time");
+				objLobby.room_size = ds_map_find_value(response, "room_size");
+				objLobby.show_bullets = ds_map_find_value(response, "show_bullets");
+				objLobby.win_option = ds_map_find_value(response, "win_option");
+				objLobby.values_changed = true;
+			}
+		break;
+		case(START_GAME):
+			
+			//for now
+			objPersistent.planning_time_room1 = objLobby.planning_time;
+			objPersistent.show_bullets_room1 = objLobby.show_bullets;
+			objPersistent.win_option_room1 = objLobby.win_option;
+				
+			room_set_width(Room1, objLobby.room_size);
+			room_set_height(Room1, objLobby.room_size);
+			
+			check;
+			
+			room_goto(Room1);
 		break;
 		case(CREATE_TOWER): //create tower
 
@@ -63,40 +74,6 @@ function scr_receive_data(sender = undefined) {
 			var object = ds_map_find_value(response, "object");
 			
 			scr_place_tower(player_num, xpos, ypos, object);
-			
-		break;
-		case(GRIDINFO): //rework for online if nessesarry
-			if global.is_host { //send Gridinfo
-				for(var i = 0; i < objGrid.field_width; i++) { 
-					var g_buffer = buffer_create(1, buffer_grow, 1);
-					buffer_seek(g_buffer, buffer_seek_start, 0);
-					buffer_write(g_buffer, buffer_u16,	GRIDINFO);
-					buffer_write(g_buffer, buffer_u16, i); //the row
-					//var arr = [];
-					for(var i2 = 0; i2 < objGrid.field_height; i2++) { 
-						
-						buffer_write(g_buffer, buffer_s16, ds_grid_get(objGrid.field_grid, i, i2)); //safe object id
-						//arr[i2] = ds_grid_get(objGrid.field_grid, i, i2);
-						
-					}
-					buffer_delete(g_buffer);
-				}
-				
-				
-			} else { //receive Gridinfo
-				//Gridinfo incoming
-				
-				//var arr = [];
-				var row = buffer_read(t_buffer, buffer_u16);
-				for(var i2 = 0; i2 < objGrid.field_height; i2++) {
-					var row_info = buffer_read(t_buffer, buffer_s16);
-					//arr[i2] = row_info;
-					ds_grid_set(objGrid.field_grid, row, i2, row_info);
-				}
-				//show_debug_message("row: " + string(row) + " info: " + string(arr));
-				
-			}
-			
 			
 		break;
 		case(RUNNING):
@@ -131,7 +108,9 @@ function scr_receive_data(sender = undefined) {
 		break;
 		case(DISCONNECT_CLIENT):
 			var player_count = ds_map_find_value(response, "playerCount");
-			objGame.player_count = player_count;
+			
+			if instance_exists(objGame) objGame.player_count = player_count;
+			if instance_exists(objLobby) objLobby.player_count = player_count;
 		break;
 
 	}

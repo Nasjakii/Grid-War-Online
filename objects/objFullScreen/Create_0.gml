@@ -1,3 +1,3 @@
 image_index = window_get_fullscreen();
 
-text = "Fullscreen";
+text = "Fullscreen/F11";

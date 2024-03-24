@@ -1,6 +1,6 @@
 function scr_update_tower(field_x, field_y, var_to_update, new_val, _upgrade = false){
 	
-	if global.campaign || global.editor {
+	if !global.online {
 		scr_update_tower_apply(field_x, field_y, var_to_update, new_val, _upgrade);
 		return;
 	}

@@ -15,10 +15,10 @@ start_x = 0;
 start_y = 0;
 var gap = 0.5;
 
-var base_pos = scr_base_pos();
+base_pos = scr_base_pos();
 
-start_x = base_pos[0] * tile_size - cam_width * gap;
-start_y = base_pos[1] * tile_size - cam_height * gap;
+var start_x = base_pos[0] * tile_size - cam_width * gap;
+var start_y = base_pos[1] * tile_size - cam_height * gap;
 
 
 

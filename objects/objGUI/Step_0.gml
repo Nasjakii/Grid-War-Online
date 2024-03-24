@@ -1,11 +1,7 @@
 
-var gm = scr_get_field_position(); //grid mouse position
-var gm_x = gm[0];
-var gm_y = gm[1];
+var hovered_field = scr_get_field_position(); //grid mouse position
 
-var tower_list = objTowers.tower_list;
-
-#region multi buy
+#region set multi_buy_obj
 	var num_key = scr_get_numkey();
 	if num_key != -1 && num_key <= ds_list_size(tower_list) {
 		obj = ds_list_find_value(tower_list, num_key - 1).object;
@@ -20,19 +16,11 @@ var tower_list = objTowers.tower_list;
 			overlay_type = "";
 		}
 		
-		if left_released scr_buy(multi_buy_obj, gm_x, gm_y, objPlayer.money);
+		if left_released scr_buy(multi_buy_obj, hovered_field[0], hovered_field[1], objPlayer.money);
 	}
 	
 #endregion
-
-if mouse_check_button(mb_right) && scr_get_owner(gm_x, gm_y) == global.player_number destroy_timer++ else destroy_timer = 0;
-if destroy_timer > destroy_duration {
-	scr_destroy_at(gm_x, gm_y);
-	destroy_timer = 0;
-}
-
-
-#region multi select
+#region set multi_select_objects list
 	multi_select = keyboard_check_direct(vk_control); //multi select
 	if keyboard_check_released(vk_control) && ds_list_size(multi_select_objects) != 0 {
 		overlay_type = "Multi Select";
@@ -45,26 +33,31 @@ if destroy_timer > destroy_duration {
 
 
 
+if !scr_on_field(hovered_field[0], hovered_field[1]) exit;
 
+#region destroy with right click
+if mouse_check_button(mb_right) && scr_get_owner(hovered_field[0], hovered_field[1]) == global.player_number destroy_timer++ else destroy_timer = 0;
+if destroy_timer > destroy_duration {
+	scr_destroy_at(hovered_field[0], hovered_field[1]);
+	destroy_timer = 0;
+}
+#endregion
 
-if !scr_on_field(gm_x, gm_y) exit;
-
-var field_object = scr_get_tower(gm_x, gm_y);
-if mouse_check_button_released(mb_left) && overlay_type = "" { //open tower overlay
-
-	clicked_field[0] = gm_x;
-	clicked_field[1] = gm_y;
+var field_object = scr_get_tower(hovered_field[0], hovered_field[1]);
+if left_released && overlay_type == "" { //open tower overlay
 	
-	var pos = scr_convert_position_grid(gm_x, gm_y);
+	clicked_tower_field = hovered_field;
+	
+	var pos = scr_convert_position_grid(clicked_tower_field[0], clicked_tower_field[1]);
 	overlay_x = pos[0];
 	overlay_y = pos[1];
 
-	if scr_get_owner(gm_x, gm_y) == global.player_number { //clicking on own tower
+	if scr_get_owner(clicked_tower_field[0], clicked_tower_field[1]) == global.player_number { //clicking on own tower
 		
 		if multi_select {
 			var obj = ds_list_find_value(multi_select_objects, 0);
 			if ds_list_size(multi_select_objects) == 0 || field_object.object_index == obj.object_index {
-				ds_list_add(multi_select_objects, scr_get_tower(gm_x, gm_y));
+				ds_list_add(multi_select_objects, scr_get_tower(clicked_tower_field[0], clicked_tower_field[1]));
 			}
 			
 		} else {

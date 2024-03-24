@@ -2,7 +2,7 @@ function scr_destroy(xpos, ypos){
 	
 	var field_pos = scr_convert_position_coordinates(xpos, ypos);
 	
-	if global.campaign || global.editor {
+	if !global.online {
 		scr_destroy_at(field_pos[0], field_pos[1]);
 		return;
 	}

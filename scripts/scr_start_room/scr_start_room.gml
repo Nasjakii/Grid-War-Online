@@ -17,7 +17,6 @@ function scr_start_room(file){
 	var player_data = json_parse(player_str);
 	var img_data = json_parse(img_str);
 
-	show_debug_message(map_data);
 	
 	for(var i = 0; i < array_length(map_data); i++) {
 		for(var i2 = 0; i2 < array_length(map_data[0]); i2++) {

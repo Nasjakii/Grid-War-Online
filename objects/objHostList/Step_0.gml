@@ -18,4 +18,3 @@ if get_hosts {
 }
 
 
-//scr_join_host(); 

@@ -10,10 +10,13 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "TickBox",
-    "path": "folders/Objects/Menu/TickBox.yy",
+    "name": "Lobby",
+    "path": "folders/Objects/Menu/Lobby.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objUIParent",
+    "path": "objects/objUIParent/objUIParent.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

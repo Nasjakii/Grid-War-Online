@@ -1,7 +1,7 @@
 
 function scr_game_set_running(running) {
 	
-	if global.campaign || global.editor {
+	if !global.online {
 		game_running = running;
 		return;
 	}

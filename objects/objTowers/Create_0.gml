@@ -150,78 +150,50 @@ function tower_editor(_name, _spr, _obj, _price, _description, _overlay) constru
 	self.price = 0;
 	self.description = _description;
 	self.overlay = _overlay;
-
-	
 }
 
-
-
-#region Base
-
-
-	var text = "The center of your operation, in Base-Mode you lose when all your Bases are destroyed";
-	
-	ds_list_add(tower_list_editor, new tower_editor("Base", sprBase, objBaseEditor, 1000, text, "Upgrade"));
-#endregion
-
 #region Collector
-
 	var text = "Collects money for every empty tile in its vision range";
-	
 	ds_list_add(tower_list_editor, new tower_editor("Collector", sprCollector, objCollectorEditor, 0, text, "Upgrade"));
 #endregion
 
-#region Cannon
+#region Wall
+	var text = "Blocking enemy bullets and letting through allied bullets";
+	ds_list_add(tower_list_editor, new tower_editor("Wall", sprWall, objWallEditor, 5, text, "Upgrade"));
+#endregion
 
+#region Cannon
 	var text = "Shoots light bullets in the direction you specify it to";
-	
 	ds_list_add(tower_list_editor, new tower_editor("Cannon", sprCannon, objCannonEditor, 30, text, "Cannon"));
 #endregion
 
 #region Radar
-
-	
 	var text = "A Tower with a huge vision range";
-	
 	ds_list_add(tower_list_editor, new tower_editor("Radar", sprRadar, objRadarEditor, 30, text, "Upgrade"));
 #endregion
 
 #region Doc
-
 	var text = "Refills health of allied towers in range";
-	
 	ds_list_add(tower_list_editor, new tower_editor("Doc", sprDoc, objDocEditor, 10, text, "Upgrade"));
 #endregion
 
-#region Striker
-
-	
-	var text = "A powerful tower with infinite range, select the target and it wont miss";
-	
-	ds_list_add(tower_list_editor, new tower_editor("Striker", sprStriker, objStrikerEditor, 2000, text, "Striker"));
-#endregion
-
-#region Wall
-
-	
-	var text = "Blocking enemy bullets and letting through allied bullets";
-	
-	ds_list_add(tower_list_editor, new tower_editor("Wall", sprWall, objWallEditor, 5, text, "Upgrade"));
-#endregion
-
 #region Banger
-
-	
 	var text = "Powerful bullets that smash trough walls and hit the Towers directly behind it";
-	
 	ds_list_add(tower_list_editor, new tower_editor("Banger", sprBanger, objBangerEditor, 50, text, "Banger"));
 #endregion
 
-#region Rock
+#region Striker
+	var text = "A powerful tower with infinite range, select the target and it wont miss";
+	ds_list_add(tower_list_editor, new tower_editor("Striker", sprStriker, objStrikerEditor, 2000, text, "Striker"));
+#endregion
 
-	
+#region Base
+	var text = "The center of your operation, in Base-Mode you lose when all your Bases are destroyed";
+	ds_list_add(tower_list_editor, new tower_editor("Base", sprBase, objBaseEditor, 1000, text, "Upgrade"));
+#endregion
+
+#region Rock
 	var text = "Rock Solid";
-	
 	ds_list_add(tower_list_editor, new tower_editor("Rock", sprTreasure, objTreasure, 50, text, "Rock"));
 #endregion
 

@@ -17,7 +17,7 @@ function scr_buy(object, field_x, field_y, money, player_number = global.player_
 
 function scr_occupy_field(field_x, field_y, player_num = global.player_number) {
 	
-	if global.campaign || global.editor {
+	if !global.online {
 		scr_change_tile(field_x, field_y, player_num);
 		return;
 	}

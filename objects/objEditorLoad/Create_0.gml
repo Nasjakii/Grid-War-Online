@@ -1,20 +1,20 @@
 
 
-
-if !directory_exists("Maps") directory_create("Maps");
+if !directory_exists(working_directory + "Maps") directory_create(working_directory + "Maps");
 
 
 
 map_names = [];
 file_names = [];
 map_sizes = [];
-var file_name = file_find_first(working_directory + "/Maps/*.ini", fa_none);
+var path = working_directory + "Maps/";
+var file_name = file_find_first(path + "*.ini", fa_none);
 
-while (file_name != "")
-{
-	ini_open(working_directory + "/Maps/" + file_name);
-		array_push(map_names, ini_read_string("Map", "name", "Default Name"));
-		array_push(map_sizes, ini_read_string("Map", "size", ""));
+while (file_name != "") {
+	ini_open("Maps/" + file_name);
+		show_debug_message(ini_read_string("Map", "name", "Error"));
+		array_push(map_names, ini_read_string("Map", "name", "Error"));
+		array_push(map_sizes, ini_read_real("Map", "size", 0));
 		array_push(file_names, file_name);
 	ini_close();
 

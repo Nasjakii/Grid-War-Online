@@ -2,7 +2,7 @@
 
 change_val = false;
 
-string_val = string(global.planning_time / game_get_speed(gamespeed_fps));
+string_val = string(objLobby.planning_time / game_speed);
 
 clicked_out = false;
 

@@ -6,8 +6,8 @@ overlay_x = 0;
 overlay_y = 0;
 
 
-clicked_field[0] = 0;
-clicked_field[1] = 0;
+clicked_tower_field[0] = 0;
+clicked_tower_field[1] = 0;
 
 multi_buy_obj = -1;
 
@@ -32,4 +32,4 @@ hover_message_body_str = "";
 destroy_timer = 0;
 destroy_duration = 1 * game_speed;
 
-
+tower_list = objTowers.tower_list;

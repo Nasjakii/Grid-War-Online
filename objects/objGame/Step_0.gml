@@ -1,4 +1,6 @@
 
+
+
 if keyboard_check_pressed(vk_escape) && objGUI.overlay_type == "" {
 	show_menu = !show_menu;
 	

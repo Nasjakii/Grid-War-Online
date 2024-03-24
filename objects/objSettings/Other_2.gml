@@ -21,29 +21,17 @@ global.socket = undefined;
 
 global.max_players = 4;
 
-ini_open("Savefile.ini");
-
-global.win_option = ini_read_string("Settings", "win_option", "Bases"); //Bases, Everything
-global.bullets_show_always = ini_read_real("Settings", "bullets_show_always", 0);
-
-//game settings
-
 global.network_debugging = false;
 
-global.planning_time = ini_read_real("Settings", "planning_time",2 * game_get_speed(gamespeed_fps));
-
-
-ini_close();
-
-global.map_file_name = "";
 
 global.room_size = tile_size * 10;
 
 
 //network
 global.host_number = -1;
+global.is_host = false;
 global.player_number = 0;
 global.socket = network_create_socket(network_socket_wss);
 network_connect_raw_async(global.socket, "wss://grid-server-gms2.glitch.me/", 443);
 
-
+global.online = false;

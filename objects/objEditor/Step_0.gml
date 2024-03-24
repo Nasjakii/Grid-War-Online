@@ -9,9 +9,9 @@ hover_set = false;
 
 
 #region multi buy
-	var key = scr_get_numkey();
-	if key != -1 {
-		multi_buy_obj = ds_list_find_value(tower_list, key + 1).object;
+	var key = scr_get_numkey() - 1;
+	if key > -1 {
+		multi_buy_obj = ds_list_find_value(tower_list, key).object;
 	}
 	
 	if right_released {
@@ -30,13 +30,6 @@ hover_set = false;
 		ds_list_clear(multi_select_objects);
 	} 
 #endregion
-
-
-if right_released {
-	overlay_type = ""; //close overlay
-}
-
-
 
 var field_pos = scr_get_field_position();
 if !scr_on_field(field_pos[0], field_pos[1]) exit;

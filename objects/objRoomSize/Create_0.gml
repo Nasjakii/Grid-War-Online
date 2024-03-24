@@ -2,7 +2,7 @@
 
 change_val = false;
 
-string_val = string(global.room_size);
+string_val = string(objLobby.room_size);
 
 clicked_out = false;
 

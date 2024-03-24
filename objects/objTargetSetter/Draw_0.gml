@@ -23,8 +23,8 @@ draw_set_alpha(1);
 if left_released {
 	
 	if instance_exists(striker_inst) && striker_inst.object_index == objStriker {
-		scr_update_tower(xpos, ypos, "target_field_x", field_x);
-		scr_update_tower(xpos, ypos, "target_field_y", field_y);
+		scr_update_tower(striker_field_x, striker_field_y, "target_field_x", field_x);
+		scr_update_tower(striker_field_x, striker_field_y, "target_field_y", field_y);
 	}
 	instance_destroy(self);
 	objGUI.overlay_type = "";

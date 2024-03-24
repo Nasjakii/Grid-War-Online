@@ -8,12 +8,18 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objWriteBox","path":"objects/objWriteBox/objWriteBox.yy",},"propertyId":{"name":"allow_text","path":"objects/objWriteBox/objWriteBox.yy",},"value":"True",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objWriteBox","path":"objects/objWriteBox/objWriteBox.yy",},"propertyId":{"name":"allow_digits","path":"objects/objWriteBox/objWriteBox.yy",},"value":"True",},
+  ],
   "parent": {
     "name": "WriteBox",
     "path": "folders/Objects/Menu/WriteBox.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objWriteBox",
+    "path": "objects/objWriteBox/objWriteBox.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

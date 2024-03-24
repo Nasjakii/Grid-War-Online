@@ -8,7 +8,6 @@
   "inheritLayers": false,
   "instanceCreationOrder": [
     {"name":"inst_596804ED_1_2_2","path":"rooms/Campaign2/Campaign2.yy",},
-    {"name":"inst_2413ABED_1_2_2","path":"rooms/Campaign2/Campaign2.yy",},
     {"name":"inst_332F2F7_2_2","path":"rooms/Campaign2/Campaign2.yy",},
     {"name":"inst_FF2AC47_2","path":"rooms/Campaign2/Campaign2.yy",},
     {"name":"inst_122AD282_1","path":"rooms/Campaign2/Campaign2.yy",},
@@ -56,7 +55,6 @@
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Controller","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_596804ED_1_2_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objGame","path":"objects/objGame/objGame.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":0.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2413ABED_1_2_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objTowers","path":"objects/objTowers/objTowers.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_332F2F7_2_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objCampaignSettings","path":"objects/objCampaignSettings/objCampaignSettings.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objCampaignSettings","path":"objects/objCampaignSettings/objCampaignSettings.yy",},"propertyId":{"name":"starting_money","path":"objects/objCampaignSettings/objCampaignSettings.yy",},"value":"30",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":0.0,},

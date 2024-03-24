@@ -17,7 +17,7 @@ for(var i = 0; i < array_length(map_names); i++) {
 		show_debug_message(file_names[i]);
 		room_set_width(EditorRoom, map_sizes[i]);
 		room_set_height(EditorRoom, map_sizes[i]);
-		global.map_file_name = file_names[i];
+		objPersistent.map_file_editor = "Maps/" + file_names[i];
 		room_goto(EditorRoom);
 		break;
 	}

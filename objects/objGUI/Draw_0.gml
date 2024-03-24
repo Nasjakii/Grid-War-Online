@@ -1,7 +1,7 @@
 
 if overlay_type == "Striker" {
 	
-	var striker_inst = ds_grid_get(objGrid.field_grid_instances, clicked_field[0], clicked_field[1]);
+	var striker_inst = ds_grid_get(objGrid.field_grid_instances, clicked_tower_field[0], clicked_tower_field[1]);
 	if  instance_exists(striker_inst) && striker_inst.object_index == objStriker {
 		var tile_s = tile_size;
 		var x1 = striker_inst.target_field_x * tile_s;

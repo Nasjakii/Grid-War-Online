@@ -1,15 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objClient",
+  "name": "objLobbyTeams",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":68,"eventType":7,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Networking",
-    "path": "folders/Objects/Networking.yy",
+    "name": "Lobby",
+    "path": "folders/Objects/Menu/Lobby.yy",
   },
   "parentObjectId": null,
   "persistent": false,
