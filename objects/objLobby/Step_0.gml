@@ -1,4 +1,6 @@
 
+player_count = objPersistent.lobby_player_count;
+
 if !global.is_host && values_changed {
 	
 	objRoomSize.string_val = string(room_size);
@@ -10,14 +12,7 @@ if !global.is_host && values_changed {
 
 
 if global.is_host && values_changed {
-	var map = ds_map_create();
-	ds_map_add(map, "hostNumber", global.host_number);
-	ds_map_add(map, "room_size"    , room_size);
-	ds_map_add(map, "planning_time", planning_time);
-	ds_map_add(map, "show_bullets" , show_bullets);
-	ds_map_add(map, "win_option"   , win_option);
-
-	scr_send_map(map, GAMESETTINGS); 
-
+	scr_send_gamesettings();
+	
 	values_changed = false;
 }

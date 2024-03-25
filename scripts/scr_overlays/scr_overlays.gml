@@ -43,7 +43,6 @@ function scr_overlay_upgrade(pos) {
 		
 		
 		//level and price of tower
-		draw_set_font(foDefault);
 		var font_size = gui_scale * 0.3;
 		scr_draw_set(fa_center, fa_middle, c_white);
 		var level_str = string("lvl " + string(inst.level));

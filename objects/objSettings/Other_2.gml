@@ -14,6 +14,23 @@
 
 #macro tile_size 32
 
+#region Networking
+
+	#macro CREATE_HOST 0
+	#macro STOP_HOST 1
+	#macro GET_HOSTS 2
+	#macro JOIN_LOBBY 3
+	#macro GAMESETTINGS 4
+	#macro START_GAME 5
+	#macro RUNNING 6
+	#macro OCCUPY_FIELD 7
+	#macro CREATE_TOWER 8
+	#macro UPDATE_TOWER 9
+	#macro DESTROY_TOWER 10
+	#macro DISCONNECT_CLIENT 11
+
+#endregion
+
 draw_set_font(foDefault);
 
 
@@ -28,10 +45,11 @@ global.room_size = tile_size * 10;
 
 
 //network
-global.host_number = -1;
+global.lobby_number = -1;
 global.is_host = false;
 global.player_number = 0;
 global.socket = network_create_socket(network_socket_wss);
 network_connect_raw_async(global.socket, "wss://grid-server-gms2.glitch.me/", 443);
 
 global.online = false;
+global.connected = false;

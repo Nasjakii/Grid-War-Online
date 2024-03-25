@@ -19,3 +19,6 @@ win_option_campaign = "Bases";
 map_file_room1 = "";
 map_file_editor = "";
 map_file_campaign = "";
+
+lobby_player_count = 0;
+

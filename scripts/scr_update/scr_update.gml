@@ -7,7 +7,7 @@ function scr_update_tower(field_x, field_y, var_to_update, new_val, _upgrade = f
 	
 	var map = ds_map_create();
 	
-	ds_map_add(map, "hostNumber", global.host_number);
+	ds_map_add(map, "lobbyNumber", global.lobby_number);
 	ds_map_add(map, "xpos", field_x);
 	ds_map_add(map, "ypos", field_y);
 	ds_map_add(map, "variable_name", var_to_update);

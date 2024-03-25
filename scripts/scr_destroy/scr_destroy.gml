@@ -12,7 +12,7 @@ function scr_destroy(xpos, ypos){
 	var field_y = field_pos[1];
 	
 	var map = ds_map_create();
-	ds_map_add(map, "hostNumber", global.host_number);
+	ds_map_add(map, "lobbyNumber", global.lobby_number);
 	ds_map_add(map, "xpos", field_x);
 	ds_map_add(map, "ypos", field_y);
 	

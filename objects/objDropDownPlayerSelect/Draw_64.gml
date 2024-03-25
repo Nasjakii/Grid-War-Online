@@ -1,5 +1,4 @@
 
-draw_set_font(foDefault);
 scr_draw_set(fa_center, fa_bottom, c_white);
 draw_text(x + sprite_width / 2, bbox_top - 5, "Player Selected");
 

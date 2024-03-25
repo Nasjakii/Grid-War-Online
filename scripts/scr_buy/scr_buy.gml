@@ -24,7 +24,7 @@ function scr_occupy_field(field_x, field_y, player_num = global.player_number) {
 
 	var map = ds_map_create();
 	ds_map_add(map, "playerNumber", player_num);
-	ds_map_add(map, "hostNumber", global.host_number);
+	ds_map_add(map, "lobbyNumber", global.lobby_number);
 	ds_map_add(map, "xpos", field_x);
 	ds_map_add(map, "ypos", field_y);
 	scr_send_map(map, OCCUPY_FIELD);

@@ -76,6 +76,7 @@
     {"name":"Wall","order":6,"path":"folders/Sprites/Towers/Wall.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
+    {"name":"Pre Game","order":11,"path":"folders/Rooms/Pre Game.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprCollector495","order":3,"path":"sprites/sprCollector495/sprCollector495.yy",},
@@ -130,6 +131,7 @@
     {"name":"objButtonClientRoom","order":1,"path":"objects/objButtonClientRoom/objButtonClientRoom.yy",},
     {"name":"sprBase1","order":1,"path":"sprites/sprBase1/sprBase1.yy",},
     {"name":"sprUIPlayerStats","order":5,"path":"sprites/sprUIPlayerStats/sprUIPlayerStats.yy",},
+    {"name":"scr_disconnect","order":3,"path":"scripts/scr_disconnect/scr_disconnect.yy",},
     {"name":"objStrikerEditor","order":6,"path":"objects/objStrikerEditor/objStrikerEditor.yy",},
     {"name":"scr_grid_get_instances_triangle","order":6,"path":"scripts/scr_grid_get_instances_triangle/scr_grid_get_instances_triangle.yy",},
     {"name":"CampaignTemplate","order":2,"path":"rooms/CampaignTemplate/CampaignTemplate.yy",},
@@ -297,6 +299,7 @@
     {"name":"objButtonEditorAdd","order":10,"path":"objects/objButtonEditorAdd/objButtonEditorAdd.yy",},
     {"name":"scr_in_vision","order":1,"path":"scripts/scr_in_vision/scr_in_vision.yy",},
     {"name":"foFieldTiny","order":3,"path":"fonts/foFieldTiny/foFieldTiny.yy",},
+    {"name":"scr_send_gamesettings","order":4,"path":"scripts/scr_send_gamesettings/scr_send_gamesettings.yy",},
     {"name":"objWriteBox","order":5,"path":"objects/objWriteBox/objWriteBox.yy",},
   ],
 }

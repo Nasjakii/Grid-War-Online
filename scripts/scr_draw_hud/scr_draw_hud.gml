@@ -29,7 +29,8 @@ function scr_draw_hud(money, towers){
 			draw_set_alpha(0.5);
 			draw_rectangle(x1, y1, x2, y2, false);
 		}
-		scr_draw_set(fa_right, fa_top, c_black, 1)
+		draw_set_alpha(1);
+		scr_draw_set(fa_right, fa_top, c_black)
 		draw_rectangle(x1, y1, x2, y2, true);
 		draw_sprite_stretched(spr, 0, x1 - sprite_get_xoffset(spr), y1 - sprite_get_yoffset(spr), img_size, img_size);
 	

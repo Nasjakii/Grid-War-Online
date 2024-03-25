@@ -42,8 +42,7 @@ if !disable_fog { //fog is drawing a surface over non-tower elements
 
 
 if draw_grid {
-	scr_draw_set(fa_right, fa_top, c_black);
-	draw_set_font(foDebugSmall);
+	scr_draw_set(fa_right, fa_top, c_black, foDebugSmall);
 	for(var i = 0; i < field_width; i++) {
 		for(var i2 = 0; i2 < field_height; i2++) {
 			draw_text(tile_size * i, tile_size * i2, ds_grid_get(field_grid_vision, i, i2));

@@ -3,7 +3,7 @@
 
 if game_state == "lost" || game_state == "won" exit;
 
-draw_set_font(foDefault);
+
 scr_draw_set(fa_right, fa_top, c_white);
 var str = string(floor(money));
 var offset = 10;

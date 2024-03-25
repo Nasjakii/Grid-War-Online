@@ -1,2 +1,7 @@
+var type = async_load[? "type"];
 
-scr_receive_data();
+switch(type){
+	case(network_type_data):	
+		scr_receive_data();
+	break;
+}

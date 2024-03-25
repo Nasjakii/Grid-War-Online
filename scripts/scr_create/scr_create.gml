@@ -8,7 +8,7 @@ function scr_tower_create(object, field_x, field_y, player_num = global.player_n
 	
 	var map = ds_map_create();
 	ds_map_add(map, "playerNumber", player_num);
-	ds_map_add(map, "hostNumber", global.host_number);
+	ds_map_add(map, "lobbyNumber", global.lobby_number);
 	ds_map_add(map, "xpos", field_x);
 	ds_map_add(map, "ypos", field_y);
 	ds_map_add(map, "object", object);

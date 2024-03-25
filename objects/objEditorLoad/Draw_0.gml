@@ -1,5 +1,5 @@
 
-draw_set_font(foDefault);
+
 scr_draw_set(fa_left, fa_top, c_white);
 for(var i = 0; i < array_length(map_names); i++) {
 	var map_name = map_names[i];

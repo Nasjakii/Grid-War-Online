@@ -1,5 +1,6 @@
 
-if !can_swap exit;
+
+if !can_swap < 0 exit;
 
 if point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom) && left_released {
 	
@@ -16,11 +17,13 @@ if point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bo
 		scr_send_map(map, CREATE_HOST);
 	} else {
 		var map = ds_map_create();
-		ds_map_add(map, "hostNumber", global.host_number);
+		ds_map_add(map, "lobbyNumber", global.lobby_number);
 		ds_map_add(map, "playerNumber", global.player_number);
 		scr_send_map(map, STOP_HOST);
 		
 	}
 	image_index++;
+	
+	can_swap = false;
 }
 

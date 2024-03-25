@@ -5,8 +5,8 @@ draw_self();
 if drag draw_set_color(c_black) else draw_set_color(c_white);
 draw_circle(circle_x,y,circ_size, false);
 
-draw_set_font(foDefaultSmall);
-scr_draw_set(fa_center, fa_middle, c_white);
+
+scr_draw_set(fa_center, fa_middle, c_white, foDefaultSmall);
 value = 1/(x_max-x_min) * (circle_x-x_min);
 draw_text(circle_x, y - sprite_height * 2, value);
 

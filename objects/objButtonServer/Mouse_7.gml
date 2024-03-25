@@ -3,7 +3,7 @@ global.player_number = 0;
 if objLobbyOnline.state {
 	global.online = true;
 	var map = ds_map_create();	
-	ds_map_add(map, "hostNumber", global.host_number);
+	ds_map_add(map, "lobbyNumber", global.lobby_number);
 	scr_send_map(map, START_GAME);
 	
 } else {

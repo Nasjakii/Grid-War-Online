@@ -10,12 +10,10 @@
     {"name":"inst_475CABCC","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_4D12C57B","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_2CC426AE","path":"rooms/Menu/Menu.yy",},
-    {"name":"inst_1E615450","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_52A1AF9C","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_41666519","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_76B98BF8","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_6AD127BD","path":"rooms/Menu/Menu.yy",},
-    {"name":"inst_4104BF8E","path":"rooms/Menu/Menu.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -27,8 +25,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2CC426AE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objButtonServerRoom","path":"objects/objButtonServerRoom/objButtonServerRoom.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objButtonTextParent","path":"objects/objButtonTextParent/objButtonTextParent.yy",},"propertyId":{"name":"text","path":"objects/objButtonTextParent/objButtonTextParent.yy",},"value":"Create Game",},
           ],"rotation":0.0,"scaleX":7.0,"scaleY":1.5,"x":288.0,"y":176.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4104BF8E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objSettings","path":"objects/objSettings/objSettings.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":0.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1E615450","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objPersistent","path":"objects/objPersistent/objPersistent.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_52A1AF9C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objButtonExit","path":"objects/objButtonExit/objButtonExit.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objButtonTextParent","path":"objects/objButtonTextParent/objButtonTextParent.yy",},"propertyId":{"name":"text","path":"objects/objButtonTextParent/objButtonTextParent.yy",},"value":"Exit",},
           ],"rotation":0.0,"scaleX":7.0,"scaleY":1.5,"x":288.0,"y":672.0,},

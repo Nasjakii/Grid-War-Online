@@ -7,8 +7,8 @@ if show_stats {
 	draw_set_color(c_white);
 	draw_rectangle(100, 100, gui_width - 100, gui_height - 100, false);
 	
-	scr_draw_set(fa_left, fa_top, c_black);
-	draw_set_font(foDefaultSmall);
+	scr_draw_set(fa_left, fa_top, c_black, foDefaultSmall);
+
 	var towers = objTowers.tower_list;
 	for(var i = 0; i < ds_list_size(towers); i++) {
 		var struct = ds_list_find_value(towers, i);
@@ -57,8 +57,8 @@ if show_menu {
 
 var game_state = objPlayer.game_state;
 if game_state == "lost" || game_state == "won" {
-	scr_draw_set(fa_center, fa_middle, c_white);
-	draw_set_font(foDefaultBig);
+	scr_draw_set(fa_center, fa_middle, c_white, foDefaultBig);
+
 	draw_text(gui_width / 2, gui_height / 2, "You " + objPlayer.game_state);
 	objGrid.disable_fog = true;
 	
@@ -77,14 +77,14 @@ if game_state == "lost" || game_state == "won" {
 }
 
 if global.is_host && game_running == false {
-	scr_draw_set(fa_center, fa_middle, c_white);
-	draw_set_font(foGUIDebugging);
+	scr_draw_set(fa_center, fa_middle, c_white, foGUIDebugging);
+
 	draw_text(gui_width / 2, gui_height / 2, "Press Escape to start with: " + string(player_count) + " Players connected");
 }
 
 if !global.is_host && game_running == false {
-	scr_draw_set(fa_center, fa_middle, c_white);
-	draw_set_font(foGUIDebugging);
+	scr_draw_set(fa_center, fa_middle, c_white, foGUIDebugging);
+
 	draw_text(gui_width / 2, gui_height / 2, "Waiting for Server to start");
 }
 
@@ -95,8 +95,7 @@ if !global.is_host && game_running == false {
 
 var width = gui_width / 3;
 
-draw_set_font(foGUIDebugging);
-scr_draw_set(fa_left, fa_top, c_black);
+scr_draw_set(fa_left, fa_top, c_black, foGUIDebugging);
 if debugging {
 	draw_text(width + 10, 40, string(timer));
 	draw_text(width + 200, 40, string(timer_counting));

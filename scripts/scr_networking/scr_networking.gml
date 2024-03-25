@@ -1,50 +1,63 @@
 /// @description all network functions to send or receive data
 
-function scr_receive_data(sender = undefined) {
+function scr_receive_data(automatic_processing = true) {
 	
-	//receive data
 	var t_buffer = ds_map_find_value(async_load, "buffer"); 
-	if !buffer_exists(t_buffer) exit;
-	
+	if !buffer_exists(t_buffer) {
+		show_debug_message("reading buffer error");
+		return;
+	}
 	buffer_seek(t_buffer, buffer_seek_start, 0);
-	var json = buffer_read(t_buffer, buffer_string); //read the json
-	var response = json_decode(json);
-	if global.network_debugging show_debug_message("< " + string(json));
-	if global.network_debugging show_debug_message(string(sender));
+	var json = buffer_read(t_buffer, buffer_string);
 	
-    var cmd_type = ds_map_find_value(response, "type");
+	if global.network_debugging show_debug_message("< " + string(json));
+
+	var response = json_decode(json);
+	if automatic_processing scr_process_data(response);
+	
+	return response;
+}
+
+function scr_process_data(response) {
+	
+	var cmd_type = ds_map_find_value(response, "type");
 	
 	switch(cmd_type){
 		case(CREATE_HOST): 
 			global.player_number = ds_map_find_value(response, "playerNumber");
-			global.host_number = ds_map_find_value(response, "hostNumber");
+			global.lobby_number = ds_map_find_value(response, "lobbyNumber");
 		break;
 		case(STOP_HOST):
 			global.player_number = -1;
-			global.host_number = -1;
-			//room_goto(Menu);
+			global.lobby_number = -1;
+			
+			if !global.is_host {
+				room_goto(Menu);
+			}
+			
 		break;
 		case(GET_HOSTS):
 			var host_list = ds_map_find_value(response, "hosts");
 			return host_list;
 		break;
 		case(JOIN_LOBBY):
-			if !global.is_host {
-				
-				global.player_number = ds_map_find_value(response, "playerNumber");
-				global.host_number = ds_map_find_value(response, "hostNumber");
-
-				room_goto(ServerRoom); 
+			if global.is_host {
+				var player_count = ds_map_find_value(response, "playerCount");
+				objPersistent.lobby_player_count = player_count;
+				scr_send_gamesettings();
 				
 			} else {
+				global.player_number = ds_map_find_value(response, "playerNumber");
+				global.lobby_number = ds_map_find_value(response, "lobbyNumber");
+				scr_debug("player_number: ", global.player_number);
 				var player_count = ds_map_find_value(response, "playerCount");
-				objLobby.player_count = player_count;
-				
+				objPersistent.lobby_player_count = player_count;
+				room_goto(ServerRoom); 
 			}
+			
 		break;
 		case(GAMESETTINGS):
 			if !global.is_host {
-				show_debug_message("< " + string(json));
 				objLobby.planning_time = ds_map_find_value(response, "planning_time");
 				objLobby.room_size = ds_map_find_value(response, "room_size");
 				objLobby.show_bullets = ds_map_find_value(response, "show_bullets");
@@ -54,17 +67,19 @@ function scr_receive_data(sender = undefined) {
 		break;
 		case(START_GAME):
 			
-			//for now
-			objPersistent.planning_time_room1 = objLobby.planning_time;
-			objPersistent.show_bullets_room1 = objLobby.show_bullets;
-			objPersistent.win_option_room1 = objLobby.win_option;
+			if instance_exists(objLobby) {
+				objPersistent.planning_time_room1 = objLobby.planning_time;
+				objPersistent.show_bullets_room1 = objLobby.show_bullets;
+				objPersistent.win_option_room1 = objLobby.win_option;
 				
-			room_set_width(Room1, objLobby.room_size);
-			room_set_height(Room1, objLobby.room_size);
+				room_set_width(Room1, objLobby.room_size);
+				room_set_height(Room1, objLobby.room_size);
 			
-			check;
-			
-			room_goto(Room1);
+				room_goto(Room1);
+			} else {
+				show_debug_message("Error Exit on trying to start Game");
+				room_goto(Menu); //error exit
+			}
 		break;
 		case(CREATE_TOWER): //create tower
 
@@ -114,9 +129,8 @@ function scr_receive_data(sender = undefined) {
 		break;
 
 	}
-	
-	
 }
+
 
 
 function scr_send_map(map, type) {
